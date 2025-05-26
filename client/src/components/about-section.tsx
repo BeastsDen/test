@@ -11,7 +11,7 @@ export default function AboutSection() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-16 gap-8 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -24,7 +24,7 @@ export default function AboutSection() {
                 About Hackure
               </span>
             </h2>
-            <p className="text-xl text-cyber-gray mb-8 leading-relaxed">
+            <p className="text-xl sm:text-xl text-lg text-cyber-gray mb-8 sm:mb-8 mb-6 leading-relaxed">
               Founded by cybersecurity experts with decades of experience, Hackure is dedicated to protecting organizations from the ever-evolving landscape of cyber threats.
             </p>
             <p className="text-lg text-cyber-gray mb-8 leading-relaxed">

@@ -94,18 +94,20 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               onClick={() => scrollToSection("contact")}
-              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 md:text-lg sm:text-base text-sm md:px-8 sm:px-6 px-4 md:py-4 sm:py-3 py-2"
             >
-              <Shield className="mr-2 h-5 w-5" />
-              Start Protection
+              <Shield className="mr-2 h-5 w-5 sm:h-4 sm:w-4" />
+              <span className="sm:inline hidden">Start Protection</span>
+              <span className="sm:hidden inline">Protect Now</span>
             </Button>
             <Button
               onClick={() => scrollToSection("services")}
               variant="outline"
-              className="border-2 border-purple-500/50 text-purple-500 bg-transparent hover:bg-purple-500/10 hover:border-purple-500 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105"
+              className="border-2 border-purple-500/50 text-purple-500 bg-transparent hover:bg-purple-500/10 hover:border-purple-500 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 md:text-lg sm:text-base text-sm md:px-8 sm:px-6 px-4 md:py-4 sm:py-3 py-2"
             >
-              <Play className="mr-2 h-5 w-5" />
-              Services We Offer
+              <Play className="mr-2 h-5 w-5 sm:h-4 sm:w-4" />
+              <span className="sm:inline hidden">Services We Offer</span>
+              <span className="sm:hidden inline">Our Services</span>
             </Button>
           </div>
 

@@ -167,9 +167,12 @@ export default function ContactSection() {
           >
             <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-cyber-light">Send us a message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <h3 className="text-2xl font-bold mb-6 text-cyber-light sm:text-2xl text-xl">
+                  <span className="sm:inline hidden">Send us a message</span>
+                  <span className="sm:hidden inline">💬 Let's Chat!</span>
+                </h3>
+                <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-6 space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-6 gap-4">
                     <div>
                       <Label htmlFor="firstName" className="text-cyber-gray mb-2 block">
                         First Name *
@@ -237,7 +240,7 @@ export default function ContactSection() {
                     <Label className="text-cyber-gray mb-3 block">
                       Services Interested In
                     </Label>
-                    <div className="space-y-3 max-h-40 overflow-y-auto bg-cyber-darker/30 p-4 rounded-lg border border-purple-500/20">
+                    <div className="space-y-3 max-h-40 sm:max-h-40 max-h-32 overflow-y-auto bg-cyber-darker/30 p-4 sm:p-4 p-3 rounded-lg border border-purple-500/20 scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-transparent">
                       {/* Select All option */}
                       <div className="flex items-center space-x-3">
                         <Checkbox
@@ -361,24 +364,28 @@ export default function ContactSection() {
             
             {/* Emergency Contact */}
             <Card className="bg-gradient-to-r from-red-900/20 to-red-800/20 border border-red-500/30 rounded-2xl">
-              <CardContent className="p-6">
-                <h4 className="text-xl font-bold text-red-400 mb-4">
-                  <AlertTriangle className="inline mr-2 h-5 w-5" />
-                  Security Emergency?
+              <CardContent className="p-6 sm:p-6 p-4">
+                <h4 className="text-xl font-bold text-red-400 mb-4 sm:text-xl text-lg">
+                  <AlertTriangle className="inline mr-2 h-5 w-5 sm:h-5 sm:w-5 h-4 w-4" />
+                  <span className="sm:inline hidden">Security Emergency?</span>
+                  <span className="sm:hidden inline">🚨 Emergency?</span>
                 </h4>
-                <p className="text-gray-300 mb-4">
-                  If you're experiencing an active security incident, contact our emergency response team immediately.
+                <p className="text-gray-300 mb-4 sm:text-base text-sm">
+                  <span className="sm:inline hidden">If you're experiencing an active security incident, contact our emergency response team immediately.</span>
+                  <span className="sm:hidden inline">Active security incident? Contact us now!</span>
                 </p>
-                <div className="space-y-3">
+                <div className="space-y-3 sm:space-y-3 space-y-2">
                   <Button 
                     onClick={() => window.open('tel:+1-800-HACKURE')}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300 sm:py-3 py-2 sm:text-base text-sm animate-pulse hover:animate-none"
                   >
                     <Phone className="mr-2 h-4 w-4" />
-                    Call: +1 (800) HACKURE
+                    <span className="sm:inline hidden">Call: +1 (800) HACKURE</span>
+                    <span className="sm:hidden inline">📞 Emergency Call</span>
                   </Button>
-                  <p className="text-sm text-gray-400 text-center">
-                    Available 24/7 • Average response time: &lt; 5 minutes
+                  <p className="text-sm text-gray-400 text-center sm:text-sm text-xs">
+                    <span className="sm:inline hidden">Available 24/7 • Average response time: &lt; 5 minutes</span>
+                    <span className="sm:hidden inline">24/7 • Response: &lt;5min</span>
                   </p>
                 </div>
               </CardContent>
