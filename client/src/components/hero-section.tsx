@@ -8,25 +8,67 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Animated Background */}
+      {/* Animated Background with Grid */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyber-dark via-cyber-darker to-cyber-navy"></div>
+      <div className="absolute inset-0 cyber-grid"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 via-transparent to-blue-500/10"></div>
       
-      {/* Floating Elements */}
+      {/* Matrix-style falling elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent"
+            style={{
+              left: `${Math.random() * 100}%`,
+              height: `${Math.random() * 200 + 100}px`,
+            }}
+            animate={{
+              y: [-200, window.innerHeight + 200],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              delay: Math.random() * 10,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Interactive Floating Elements */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-500 rounded-full opacity-60"
-        animate={{ y: [-20, 0, -20] }}
+        className="absolute top-1/4 left-1/4 w-4 h-4 bg-purple-500 rounded-full opacity-60 cursor-pointer animate-pulse-glow"
+        animate={{ y: [-20, 0, -20], rotate: [0, 360] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{ scale: 1.5, opacity: 1 }}
       />
       <motion.div
-        className="absolute top-1/3 right-1/3 w-1 h-1 bg-blue-500 rounded-full opacity-40"
-        animate={{ y: [-20, 0, -20] }}
+        className="absolute top-1/3 right-1/3 w-3 h-3 bg-blue-500 rounded-full opacity-40 cursor-pointer animate-pulse-glow"
+        animate={{ y: [-20, 0, -20], rotate: [360, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        whileHover={{ scale: 1.5, opacity: 1 }}
       />
       <motion.div
-        className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-purple-400 rounded-full opacity-30"
-        animate={{ y: [-20, 0, -20] }}
+        className="absolute bottom-1/4 left-1/3 w-5 h-5 bg-purple-400 rounded-full opacity-30 cursor-pointer animate-pulse-glow"
+        animate={{ y: [-20, 0, -20], rotate: [0, 360] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+        whileHover={{ scale: 1.5, opacity: 1 }}
+      />
+      
+      {/* Interactive Cyber Nodes */}
+      <motion.div
+        className="absolute top-1/2 left-1/6 w-2 h-2 bg-cyan-400 rounded-full opacity-50 cursor-pointer"
+        animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+        transition={{ duration: 4, repeat: Infinity }}
+        whileHover={{ scale: 2, opacity: 1 }}
+      />
+      <motion.div
+        className="absolute top-2/3 right-1/4 w-2 h-2 bg-cyan-400 rounded-full opacity-50 cursor-pointer"
+        animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+        transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+        whileHover={{ scale: 2, opacity: 1 }}
       />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
