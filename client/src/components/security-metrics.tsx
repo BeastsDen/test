@@ -73,7 +73,7 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16 sm:mb-16 mb-8"
+          className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
