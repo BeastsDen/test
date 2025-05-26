@@ -119,32 +119,32 @@ export default function TestimonialsSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex-none w-96"
+                className="flex-none w-80 sm:w-96"
               >
                 <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl hover:border-purple-500/40 transition-all duration-300 h-full">
-                  <CardContent className="p-6 h-full flex flex-col">
+                  <CardContent className="p-4 sm:p-6 h-full flex flex-col text-center sm:text-left">
                     {/* Quote Icon */}
-                    <div className="mb-4">
-                      <Quote className="h-8 w-8 text-purple-500/60" />
+                    <div className="mb-4 flex justify-center sm:justify-start">
+                      <Quote className="h-6 w-6 sm:h-8 sm:w-8 text-purple-500/60" />
                     </div>
                     
                     {/* Testimonial Content */}
-                    <blockquote className="text-cyber-gray leading-relaxed mb-6 flex-grow">
+                    <blockquote className="text-cyber-gray leading-relaxed mb-6 flex-grow text-sm sm:text-base">
                       "{testimonial.content}"
                     </blockquote>
                     
                     {/* Rating */}
-                    <div className="flex items-center mb-4">
+                    <div className="flex items-center justify-center sm:justify-start mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
                       ))}
                     </div>
                     
-                    {/* Author Info (without photo) */}
+                    {/* Author Info */}
                     <div className="space-y-1">
-                      <div className="font-semibold text-cyber-light">{testimonial.name}</div>
-                      <div className="text-sm text-cyber-gray">{testimonial.title}</div>
-                      <div className="text-sm text-purple-400">{testimonial.company}</div>
+                      <div className="font-semibold text-cyber-light text-sm sm:text-base">{testimonial.name}</div>
+                      <div className="text-xs sm:text-sm text-cyber-gray">{testimonial.title}</div>
+                      <div className="text-xs sm:text-sm text-purple-400">{testimonial.company}</div>
                     </div>
                   </CardContent>
                 </Card>
