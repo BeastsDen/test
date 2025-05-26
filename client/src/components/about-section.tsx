@@ -204,6 +204,26 @@ export default function AboutSection() {
                       </div>
                     </motion.div>
                   </div>
+
+                  {/* Additional row for ISO-27001 */}
+                  <div className="grid grid-cols-1 gap-2 sm:gap-4 mt-4">
+                    {/* ISO-27001 Lead Auditor */}
+                    <motion.div
+                      className="bg-gradient-to-br from-cyber-darker/60 to-cyber-navy/40 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-green-500/30 hover:border-green-500/60 transition-all duration-300 group"
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
+                    >
+                      <div className="text-center">
+                        <div className="w-8 h-8 sm:w-12 sm:h-12 bg-green-500/20 rounded-lg flex items-center justify-center border border-green-500/40 mx-auto mb-2 sm:mb-3">
+                          <span className="text-green-400 font-bold text-xs sm:text-sm">ISO</span>
+                        </div>
+                        <h4 className="text-sm sm:text-lg font-bold text-cyber-light">ISO-27001</h4>
+                        <p className="text-xs sm:text-sm text-green-400">Lead Auditor</p>
+                      </div>
+                    </motion.div>
+                  </div>
                 {/* Trust Indicators */}
                   <motion.div
                     className="mt-8 p-4 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-lg border border-purple-500/20"
