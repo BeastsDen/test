@@ -42,19 +42,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <motion.div 
-              className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center font-bold text-white cursor-pointer animate-pulse-glow"
-              whileHover={{ 
-                scale: 1.1, 
-                rotate: [0, -5, 5, 0],
-                boxShadow: "0 0 20px rgba(139, 92, 246, 0.6)"
-              }}
-              transition={{ type: "spring", stiffness: 300 }}
-              onClick={() => handleNavClick("home")}
-            >
-              H
-            </motion.div>
+          <div className="flex items-center">
             <motion.span 
               className="text-xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent cursor-pointer"
               whileHover={{ scale: 1.05 }}
