@@ -11,8 +11,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // SSL/TLS
   auth: {
-    user: process.env.EMAIL_USER, // your Hostinger email
-    pass: process.env.EMAIL_PASS  // your Hostinger email password
+    user: 'sales@hackure.in',
+    pass: 'H@ckure#1529'
   }
 });
 
@@ -22,12 +22,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const contactData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(contactData);
-      
+
       // Send email notification
       try {
         await transporter.sendMail({
-          from: process.env.EMAIL_USER,
-          to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
+          from: 'sales@hackure.in',
+          to: 'maliaakash09@gmail.com',
           subject: `New Contact Form Submission from ${contactData.firstName} ${contactData.lastName}`,
           html: `
             <h2>New Contact Form Submission</h2>
@@ -42,7 +42,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         console.error("Failed to send email:", emailError);
         // Continue even if email fails
       }
-      
+
       res.json({
         success: true,
         message: "Contact form submitted successfully",
