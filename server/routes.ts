@@ -21,7 +21,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
     try {
       const contactData = insertContactSchema.parse(req.body);
-      const contact = await storage.createContact(contactData);
 
       // Send email notification
       try {
@@ -58,17 +57,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
                     <div class="label">👤 Full Name:</div>
                     <div class="value">${contactData.firstName} ${contactData.lastName}</div>
                   </div>
-                  
+
                   <div class="field">
                     <div class="label">📧 Email Address:</div>
                     <div class="value"><a href="mailto:${contactData.email}">${contactData.email}</a></div>
                   </div>
-                  
+
                   <div class="field">
                     <div class="label">🏢 Company:</div>
                     <div class="value">${contactData.company || 'Not provided'}</div>
                   </div>
-                  
+
                   ${contactData.services && contactData.services.length > 0 ? `
                   <div class="field">
                     <div class="label">🛡️ Services Interested In:</div>
@@ -82,12 +81,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
                     </p>
                   </div>
                   ` : ''}
-                  
+
                   <div class="field">
                     <div class="label">💬 Message:</div>
                     <div class="message-box">${contactData.message}</div>
                   </div>
-                  
+
                   <div style="margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 5px; border-left: 4px solid #2196F3;">
                     <p style="margin: 0; font-size: 14px; color: #1565C0;">
                       <strong>📅 Submitted:</strong> ${new Date().toLocaleString('en-US', { 
@@ -114,8 +113,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json({
         success: true,
-        message: "Contact form submitted successfully",
-        contactId: contact.id,
+        message: "Contact form submitted successfully"
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
