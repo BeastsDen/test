@@ -222,14 +222,13 @@ export default function ContactSection() {
                     />
                   </div>
 
-                  {/* Centered Services Selection Section */}
-                  <div className="bg-gradient-to-r from-purple-500/5 to-blue-500/5 p-6 rounded-xl border border-purple-500/20 mx-auto">
-                    <Label className="text-cyber-light mb-4 block text-center text-lg font-semibold">
+                  <div>
+                    <Label className="text-cyber-gray mb-3 block">
                       Services Interested In
                     </Label>
                     <div className="space-y-3 max-h-40 overflow-y-auto bg-cyber-darker/30 p-4 rounded-lg border border-purple-500/20">
                       {/* Select All option */}
-                      <div className="flex items-center justify-center space-x-3 pb-3 border-b border-purple-500/20">
+                      <div className="flex items-center space-x-3">
                         <Checkbox
                           id="select-all"
                           checked={formData.services.length === availableServices.length}
@@ -241,7 +240,7 @@ export default function ContactSection() {
                         </Label>
                       </div>
                       
-                      <div className="pt-3">
+                      <div className="border-t border-purple-500/20 pt-3">
                         {availableServices.map((service) => (
                           <div key={service} className="flex items-center space-x-3 py-1">
                             <Checkbox
@@ -258,7 +257,7 @@ export default function ContactSection() {
                       </div>
                     </div>
                     {formData.services.length > 0 && (
-                      <p className="text-xs text-purple-400 mt-3 text-center font-medium">
+                      <p className="text-xs text-purple-400 mt-2">
                         {formData.services.length} service{formData.services.length > 1 ? 's' : ''} selected
                       </p>
                     )}
