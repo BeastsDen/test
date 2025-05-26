@@ -15,12 +15,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center font-bold text-white">
-                H
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
-                Hackure
-              </span>
+              <img 
+                src="/logo.png" 
+                alt="Company Logo" 
+                className="h-10 w-auto filter brightness-110"
+              />
             </div>
             <p className="text-cyber-gray mb-6 max-w-md">
               Protecting your digital assets with cutting-edge cybersecurity solutions. Your security is our priority.

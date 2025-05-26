@@ -76,7 +76,14 @@ export default function AboutSection() {
             className="relative"
           >
             <Card className="bg-cyber-navy/40 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-8 relative overflow-hidden">
-              {/* Cybersecurity themed abstract visualization */}
+              {/* Real cybersecurity metrics dashboard */}
+              <div className="mb-8">
+                <img 
+                  src="/dashboard-metrics.png" 
+                  alt="Security Metrics Dashboard" 
+                  className="w-full h-auto rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
               <div className="grid grid-cols-3 gap-4 mb-8">
                 <motion.div
                   className="h-20 bg-gradient-to-b from-purple-500/30 to-blue-500/30 rounded-lg"

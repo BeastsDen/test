@@ -1,39 +1,51 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Shield, Lock, Eye, Bug, GraduationCap, ClipboardCheck, ArrowRight } from "lucide-react";
+import { Shield, Lock, Eye, Bug, GraduationCap, ClipboardCheck, ArrowRight, Server, AlertTriangle, FileCheck, Zap, Users, Globe } from "lucide-react";
 
 const services = [
   {
     icon: Shield,
-    title: "Threat Detection",
-    description: "Advanced AI-powered threat detection and response systems that identify and neutralize threats in real-time.",
-  },
-  {
-    icon: Lock,
-    title: "Data Encryption",
-    description: "Military-grade encryption solutions to protect your sensitive data both at rest and in transit.",
+    title: "Threat Detection & Prevention",
+    description: "Advanced AI-powered threat detection with real-time monitoring to identify and prevent security breaches before they impact your business.",
+    features: ["24/7 monitoring", "AI threat analysis", "Automated response"],
+    color: "from-red-500 to-orange-500"
   },
   {
     icon: Eye,
-    title: "24/7 Monitoring",
-    description: "Round-the-clock security monitoring with instant alerts and rapid incident response capabilities.",
+    title: "Vulnerability Assessment",
+    description: "Comprehensive security audits and penetration testing to identify vulnerabilities and strengthen your security posture.",
+    features: ["Network scanning", "Penetration testing", "Risk assessment"],
+    color: "from-blue-500 to-cyan-500"
   },
   {
-    icon: Bug,
-    title: "Penetration Testing",
-    description: "Comprehensive security assessments to identify vulnerabilities before malicious actors do.",
+    icon: Server,
+    title: "Infrastructure Security",
+    description: "Complete infrastructure protection including cloud security, server hardening, and secure architecture design.",
+    features: ["Cloud security", "Server hardening", "Architecture review"],
+    color: "from-green-500 to-emerald-500"
   },
   {
-    icon: GraduationCap,
+    icon: AlertTriangle,
+    title: "Incident Response",
+    description: "Rapid incident response and forensic analysis to minimize damage and restore operations with minimal downtime.",
+    features: ["Emergency response", "Forensic analysis", "Recovery planning"],
+    color: "from-yellow-500 to-amber-500"
+  },
+  {
+    icon: Users,
     title: "Security Training",
-    description: "Employee security awareness training to build a human firewall against social engineering attacks.",
+    description: "Comprehensive cybersecurity awareness training to build a security-conscious culture within your organization.",
+    features: ["Security awareness", "Phishing simulations", "Compliance training"],
+    color: "from-purple-500 to-violet-500"
   },
   {
-    icon: ClipboardCheck,
-    title: "Compliance",
-    description: "Ensure regulatory compliance with industry standards including GDPR, HIPAA, and SOX.",
-  },
+    icon: FileCheck,
+    title: "Compliance & Governance",
+    description: "Ensure regulatory compliance with frameworks like SOC 2, ISO 27001, GDPR, and industry-specific requirements.",
+    features: ["Compliance audits", "Policy development", "Risk management"],
+    color: "from-indigo-500 to-blue-600"
+  }
 ];
 
 export default function ServicesSection() {
@@ -56,7 +68,7 @@ export default function ServicesSection() {
             Comprehensive cybersecurity solutions tailored to protect your organization from sophisticated threats.
           </p>
         </motion.div>
-        
+
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
@@ -75,10 +87,9 @@ export default function ServicesSection() {
                   className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={false}
                 />
-                
+
                 <CardContent className="p-8 relative z-10">
-                  <motion.div
-                    className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center mb-6 animate-pulse-glow"
+                  <div className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center mb-6 animate-pulse-glow`}
                     whileHover={{ 
                       scale: 1.15, 
                       rotate: [0, -10, 10, 0],
@@ -86,17 +97,17 @@ export default function ServicesSection() {
                     }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <service.icon className="h-8 w-8 text-white" />
-                  </motion.div>
-                  
+                    <service.icon className="h-7 w-7 text-white" />
+                  </div>
+
                   <h3 className="text-2xl font-bold mb-4 text-cyber-light group-hover:text-purple-300 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-cyber-gray mb-6 leading-relaxed group-hover:text-cyber-light transition-colors duration-300">
                     {service.description}
                   </p>
-                  
+
                   <motion.div whileHover={{ x: 5 }}>
                     <Button
                       variant="ghost"
@@ -112,7 +123,7 @@ export default function ServicesSection() {
                     </Button>
                   </motion.div>
                 </CardContent>
-                
+
                 {/* Animated border */}
                 <motion.div
                   className="absolute inset-0 rounded-lg border-2 border-transparent bg-gradient-to-r from-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"

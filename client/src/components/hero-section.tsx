@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { Shield, Lock, Eye, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Shield, Play } from "lucide-react";
+import { motion } from "framer-motion";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 export default function HeroSection() {
@@ -12,7 +12,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-cyber-dark via-cyber-darker to-cyber-navy"></div>
       <div className="absolute inset-0 cyber-grid"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 via-transparent to-blue-500/10"></div>
-      
+
       {/* Matrix-style falling elements */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (
@@ -36,7 +36,7 @@ export default function HeroSection() {
           />
         ))}
       </div>
-      
+
       {/* Interactive Floating Elements */}
       <motion.div
         className="absolute top-1/4 left-1/4 w-4 h-4 bg-purple-500 rounded-full opacity-60 cursor-pointer animate-pulse-glow"
@@ -56,7 +56,7 @@ export default function HeroSection() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 4 }}
         whileHover={{ scale: 1.5, opacity: 1 }}
       />
-      
+
       {/* Interactive Cyber Nodes */}
       <motion.div
         className="absolute top-1/2 left-1/6 w-2 h-2 bg-cyan-400 rounded-full opacity-50 cursor-pointer"
@@ -70,7 +70,7 @@ export default function HeroSection() {
         transition={{ duration: 4, repeat: Infinity, delay: 1 }}
         whileHover={{ scale: 2, opacity: 1 }}
       />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -78,7 +78,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
 
-          
+
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-purple-500 via-purple-400 to-blue-500 bg-clip-text text-transparent">
               Secure Your
@@ -86,11 +86,11 @@ export default function HeroSection() {
             <br />
             <span className="text-cyber-light">Digital Future</span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-cyber-gray mb-8 max-w-3xl mx-auto leading-relaxed">
             Advanced cybersecurity solutions that protect your business from evolving threats while empowering digital transformation.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               onClick={() => scrollToSection("contact")}
@@ -108,7 +108,7 @@ export default function HeroSection() {
               Services We Offer
             </Button>
           </div>
-          
+
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto">
             <div className="text-center">
@@ -126,6 +126,39 @@ export default function HeroSection() {
           </div>
         </motion.div>
       </div>
+
+      {/* Floating Cybersecurity Icons */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-20 left-10 text-purple-500/30"
+          animate={{ y: [0, -20, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Shield className="h-8 w-8" />
+        </motion.div>
+        <motion.div
+          className="absolute top-40 right-20 text-blue-500/30"
+          animate={{ y: [0, 20, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        >
+          <Lock className="h-6 w-6" />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-40 left-20 text-purple-400/30"
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        >
+          <Eye className="h-7 w-7" />
+        </motion.div>
+        <motion.div
+          className="absolute top-60 right-10 text-blue-400/30"
+          animate={{ y: [0, 25, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        >
+          <Zap className="h-5 w-5" />
+        </motion.div>
+        <motion.div
+      />
     </section>
   );
 }

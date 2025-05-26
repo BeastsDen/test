@@ -43,13 +43,17 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="flex items-center space-x-2">
-            <img 
-              src="/logo.png" 
-              alt="Company Logo" 
-              className="h-10 w-auto"
-            />
-          </div>
+            <motion.div 
+              className="flex items-center cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              onClick={() => handleNavClick("home")}
+            >
+              <img 
+                src="/logo.png" 
+                alt="Company Logo" 
+                className="h-12 w-auto filter brightness-110"
+              />
+            </motion.div>
           </div>
 
           {/* Desktop Navigation */}
