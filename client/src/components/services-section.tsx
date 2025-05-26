@@ -3,140 +3,375 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Shield, Lock, Eye, Bug, GraduationCap, ClipboardCheck, ArrowRight, Server, AlertTriangle, FileCheck, Zap, Users, Globe, CheckCircle } from "lucide-react";
+import { Shield, Lock, Eye, Bug, GraduationCap, ClipboardCheck, ArrowRight, Server, AlertTriangle, FileCheck, Zap, Users, Globe, CheckCircle, Network, Smartphone, Cloud, Search, Target, Code, UserCheck } from "lucide-react";
 import { useState } from "react";
 
-const services = [
+const vaptServices = [
   {
-    icon: Shield,
-    title: "Threat Detection & Prevention",
-    description: "Advanced AI-powered threat detection with real-time monitoring to identify and prevent security breaches before they impact your business.",
-    features: ["24/7 monitoring", "AI threat analysis", "Automated response"],
+    icon: Network,
+    title: "Internal Threat Simulation (Network VAPT)",
+    description: "Evaluating internal security postures by testing network configurations, vulnerabilities and other security weaknesses.",
+    features: ["Network scanning", "Vulnerability assessment", "Lateral movement testing"],
     color: "from-red-500 to-orange-500",
     detailedFeatures: [
-      "Real-time threat intelligence monitoring",
-      "Machine learning-based anomaly detection",
-      "Automated incident response workflows",
-      "Custom threat hunting services",
-      "Advanced persistent threat (APT) protection",
-      "Zero-day exploit detection"
+      "Comprehensive network infrastructure assessment",
+      "Internal vulnerability scanning and exploitation",
+      "Lateral movement technique identification",
+      "Network segmentation evaluation",
+      "Privilege escalation testing",
+      "Network device security analysis"
     ],
     benefits: [
-      "Reduce security incidents by 95%",
-      "Average response time under 60 seconds",
-      "24/7 SOC monitoring and support",
-      "Proactive threat hunting"
+      "Identify critical network vulnerabilities before attackers do",
+      "Understand attack paths within your network",
+      "Improve network segmentation and access controls",
+      "Strengthen internal security posture"
     ]
   },
   {
-    icon: Eye,
-    title: "Vulnerability Assessment",
-    description: "Comprehensive security audits and penetration testing to identify vulnerabilities and strengthen your security posture.",
-    features: ["Network scanning", "Penetration testing", "Risk assessment"],
+    icon: Globe,
+    title: "Web Application VAPT (Web VAPT)",
+    description: "Identifying and exploiting vulnerabilities in Web Applications and securing APIs and web services from exploitation.",
+    features: ["OWASP Top 10 testing", "API security", "Authentication bypass"],
     color: "from-blue-500 to-cyan-500",
     detailedFeatures: [
-      "Comprehensive network vulnerability scanning",
-      "Web application security testing",
-      "Social engineering assessments",
-      "Wireless security audits",
-      "Physical security evaluations",
-      "Detailed remediation roadmaps"
+      "OWASP Top 10 vulnerability assessment",
+      "SQL injection and XSS testing",
+      "Authentication and authorization bypass",
+      "API security testing and validation",
+      "Session management evaluation",
+      "Input validation and sanitization testing"
     ],
     benefits: [
-      "Identify vulnerabilities before attackers do",
-      "Comprehensive risk prioritization",
-      "Detailed remediation guidance",
-      "Compliance requirement validation"
+      "Secure web applications before deployment",
+      "Protect sensitive data from web-based attacks",
+      "Ensure API security and integrity",
+      "Maintain customer trust and compliance"
+    ]
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Application VAPT (Mobile VAPT)",
+    description: "Identifying and exploiting vulnerabilities in iOS and Android applications, reviewing app permissions, API security, and encryption mechanisms.",
+    features: ["iOS/Android testing", "API security", "Encryption analysis"],
+    color: "from-green-500 to-emerald-500",
+    detailedFeatures: [
+      "Static and dynamic mobile app analysis",
+      "iOS and Android security testing",
+      "App permission and privilege analysis",
+      "Mobile API security assessment",
+      "Data encryption and storage review",
+      "Mobile device management (MDM) testing"
+    ],
+    benefits: [
+      "Secure mobile applications across platforms",
+      "Protect user data and privacy",
+      "Ensure compliance with mobile security standards",
+      "Prevent mobile-based data breaches"
     ]
   },
   {
     icon: Server,
-    title: "Infrastructure Security",
-    description: "Complete infrastructure protection including cloud security, server hardening, and secure architecture design.",
-    features: ["Cloud security", "Server hardening", "Architecture review"],
-    color: "from-green-500 to-emerald-500",
-    detailedFeatures: [
-      "Multi-cloud security architecture",
-      "Container and Kubernetes security",
-      "Network segmentation design",
-      "Identity and access management",
-      "Endpoint detection and response",
-      "Security configuration management"
-    ],
-    benefits: [
-      "Reduce infrastructure vulnerabilities by 90%",
-      "Enhanced cloud security posture",
-      "Automated compliance monitoring",
-      "Scalable security architecture"
-    ]
-  },
-  {
-    icon: AlertTriangle,
-    title: "Incident Response",
-    description: "Rapid incident response and forensic analysis to minimize damage and restore operations with minimal downtime.",
-    features: ["Emergency response", "Forensic analysis", "Recovery planning"],
-    color: "from-yellow-500 to-amber-500",
-    detailedFeatures: [
-      "24/7 emergency response hotline",
-      "Digital forensics and investigation",
-      "Malware analysis and reverse engineering",
-      "Data breach response coordination",
-      "Legal and regulatory compliance support",
-      "Post-incident security improvements"
-    ],
-    benefits: [
-      "Average response time under 15 minutes",
-      "Minimize business disruption",
-      "Preserve digital evidence",
-      "Regulatory compliance assistance"
-    ]
-  },
-  {
-    icon: Users,
-    title: "Security Training",
-    description: "Comprehensive cybersecurity awareness training to build a security-conscious culture within your organization.",
-    features: ["Security awareness", "Phishing simulations", "Compliance training"],
+    title: "Active Directory VAPT (AD-VAPT)",
+    description: "Identifying weaknesses in Active Directory configurations and exploiting vulnerabilities to assess organizational control risks.",
+    features: ["AD enumeration", "Privilege escalation", "Kerberoasting"],
     color: "from-purple-500 to-violet-500",
     detailedFeatures: [
-      "Interactive security awareness training",
-      "Simulated phishing campaigns",
-      "Role-based security training modules",
-      "Security culture assessment",
-      "Executive security briefings",
-      "Continuous learning programs"
+      "Active Directory enumeration and reconnaissance",
+      "Privilege escalation path identification",
+      "Kerberoasting and ASREPRoasting attacks",
+      "Group Policy security assessment",
+      "Domain controller security evaluation",
+      "Trust relationship analysis"
+    ],
+    benefits: [
+      "Secure critical identity infrastructure",
+      "Prevent domain-wide compromises",
+      "Strengthen access control mechanisms",
+      "Protect against advanced persistent threats"
+    ]
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Security VAPT (CS-VAPT)",
+    description: "Identifying misconfigurations and security weaknesses in cloud deployments while ensuring compliance with industry standards.",
+    features: ["Cloud configuration", "Compliance testing", "Multi-cloud security"],
+    color: "from-indigo-500 to-blue-600",
+    detailedFeatures: [
+      "AWS, Azure, GCP security assessment",
+      "Cloud configuration and IAM review",
+      "Container and Kubernetes security testing",
+      "Serverless security evaluation",
+      "Cloud storage and database security",
+      "Compliance validation (ISO 27001, PCI-DSS, NIST)"
+    ],
+    benefits: [
+      "Secure cloud infrastructure and services",
+      "Ensure regulatory compliance",
+      "Optimize cloud security configurations",
+      "Prevent cloud-based data breaches"
+    ]
+  }
+];
+
+const specialServices = [
+  {
+    icon: Search,
+    title: "Dark Web Breach Analysis (DWBA)",
+    description: "Monitoring the dark web and underground forums for leaked credentials and corporate data with proactive alerting and mitigation strategies.",
+    features: ["Dark web monitoring", "Credential tracking", "Breach analysis"],
+    color: "from-yellow-500 to-amber-500",
+    detailedFeatures: [
+      "Continuous dark web monitoring",
+      "Leaked credential identification",
+      "Corporate data breach detection",
+      "Underground forum surveillance",
+      "Real-time threat intelligence feeds",
+      "Proactive breach notification system"
+    ],
+    benefits: [
+      "Early detection of data breaches",
+      "Prevent identity theft and fraud",
+      "Proactive threat intelligence",
+      "Rapid incident response capabilities"
+    ]
+  },
+  {
+    icon: Target,
+    title: "External Threat Simulation (Red Teaming)",
+    description: "Simulating real-world cyberattacks by mimicking advanced persistent threats (APTs) and testing external defenses.",
+    features: ["APT simulation", "External reconnaissance", "Multi-vector attacks"],
+    color: "from-red-600 to-pink-600",
+    detailedFeatures: [
+      "Advanced persistent threat simulation",
+      "External reconnaissance and OSINT",
+      "Multi-vector attack campaigns",
+      "Social engineering integration",
+      "Stealth operation techniques",
+      "Real-world attack scenario testing"
+    ],
+    benefits: [
+      "Test defenses against sophisticated attacks",
+      "Identify security gaps before real attackers",
+      "Improve incident response capabilities",
+      "Validate security investments"
+    ]
+  },
+  {
+    icon: Bug,
+    title: "Strategic Targeted Phishing Simulations (STPS)",
+    description: "Conducting real-world phishing campaigns to test employee awareness and providing training sessions to mitigate social engineering risks.",
+    features: ["Phishing campaigns", "Employee testing", "Awareness training"],
+    color: "from-orange-500 to-red-500",
+    detailedFeatures: [
+      "Customized phishing campaign design",
+      "Employee susceptibility testing",
+      "Spear phishing simulations",
+      "Social engineering awareness training",
+      "Behavioral change measurement",
+      "Continuous improvement programs"
     ],
     benefits: [
       "Reduce human error incidents by 80%",
-      "Improve security awareness scores",
       "Build security-conscious culture",
-      "Measurable behavior change"
+      "Measure and improve security awareness",
+      "Prevent social engineering attacks"
     ]
   },
   {
-    icon: FileCheck,
-    title: "Compliance & Governance",
-    description: "Ensure regulatory compliance with frameworks like SOC 2, ISO 27001, GDPR, and industry-specific requirements.",
-    features: ["Compliance audits", "Policy development", "Risk management"],
-    color: "from-indigo-500 to-blue-600",
+    icon: Lock,
+    title: "Physical Attack Simulation (PAS)",
+    description: "Testing physical security measures including access control, RFID card cloning, and tailgating prevention assessments.",
+    features: ["Physical penetration", "Access control testing", "RFID analysis"],
+    color: "from-gray-500 to-slate-600",
     detailedFeatures: [
-      "SOC 2 Type II audit preparation",
-      "ISO 27001 implementation and certification",
-      "GDPR compliance assessment",
-      "HIPAA security risk assessments",
-      "PCI DSS compliance validation",
-      "Custom policy development"
+      "Physical facility penetration testing",
+      "Access control system evaluation",
+      "RFID card cloning and badge duplication",
+      "Tailgating and social engineering tests",
+      "USB drop attack simulations",
+      "Security camera and alarm system testing"
     ],
     benefits: [
-      "Achieve regulatory compliance faster",
-      "Reduce audit preparation time by 60%",
-      "Continuous compliance monitoring",
-      "Expert guidance and support"
+      "Secure physical access points",
+      "Prevent unauthorized facility access",
+      "Protect against physical data theft",
+      "Comprehensive security posture assessment"
+    ]
+  },
+  {
+    icon: Code,
+    title: "Secure Source Code Review",
+    description: "Conducting manual and automated security code analysis to identify vulnerabilities in applications before deployment.",
+    features: ["Static analysis", "Manual review", "Vulnerability detection"],
+    color: "from-teal-500 to-cyan-600",
+    detailedFeatures: [
+      "Static application security testing (SAST)",
+      "Manual code review and analysis",
+      "Vulnerability pattern identification",
+      "Secure coding standards validation",
+      "Third-party library security assessment",
+      "Development lifecycle integration"
+    ],
+    benefits: [
+      "Identify vulnerabilities before deployment",
+      "Improve code quality and security",
+      "Reduce post-deployment security issues",
+      "Accelerate secure development practices"
+    ]
+  },
+  {
+    icon: Shield,
+    title: "Active Threat Deception & Intrusion Detection (ATDID)",
+    description: "Deploying honeypots, canary tokens, and deception technology with SIEM integration for continuous attack monitoring.",
+    features: ["Honeypot deployment", "Deception technology", "SIEM integration"],
+    color: "from-emerald-500 to-green-600",
+    detailedFeatures: [
+      "Honeypot and honeynet deployment",
+      "Canary token implementation",
+      "Deception technology integration",
+      "SIEM platform integration and tuning",
+      "Real-time threat detection and alerting",
+      "Attack attribution and analysis"
+    ],
+    benefits: [
+      "Early attack detection and containment",
+      "Reduce dwell time of attackers",
+      "Gather threat intelligence",
+      "Enhance security monitoring capabilities"
+    ]
+  }
+];
+
+const trainingServices = [
+  {
+    icon: GraduationCap,
+    title: "Staff Training and Awareness Sessions",
+    description: "Conducting interactive cybersecurity workshops for employees, educating staff on best practices, phishing awareness, and insider threat prevention.",
+    features: ["Interactive workshops", "Security awareness", "Best practices training"],
+    color: "from-violet-500 to-purple-600",
+    detailedFeatures: [
+      "Interactive cybersecurity workshops",
+      "Role-based security training modules",
+      "Phishing awareness and prevention",
+      "Insider threat identification and mitigation",
+      "Incident reporting procedures",
+      "Security policy and compliance training"
+    ],
+    benefits: [
+      "Build security-conscious workforce",
+      "Reduce human error incidents",
+      "Improve security policy compliance",
+      "Create culture of security awareness"
     ]
   }
 ];
 
 export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState(null);
+
+  const ServiceCard = ({ service, index }) => (
+    <motion.div
+      key={service.title}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -8, scale: 1.02 }}
+      className="interactive-hover"
+    >
+      <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 group h-full relative overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          initial={false}
+        />
+
+        <CardContent className="p-6 relative z-10">
+          <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-4 animate-pulse-glow`}>
+            <service.icon className="h-6 w-6 text-white" />
+          </div>
+
+          <h3 className="text-lg font-bold mb-3 text-cyber-light group-hover:text-purple-300 transition-colors duration-300">
+            {service.title}
+          </h3>
+
+          <p className="text-cyber-gray mb-4 text-sm leading-relaxed group-hover:text-cyber-light transition-colors duration-300">
+            {service.description}
+          </p>
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                variant="ghost"
+                className="text-purple-500 hover:text-blue-500 hover:bg-purple-500/10 transition-colors duration-300 font-medium p-0 group-hover:translate-x-2"
+                onClick={() => setSelectedService(service)}
+              >
+                Learn More 
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-cyber-navy/95 backdrop-blur-lg border border-purple-500/30">
+              <DialogHeader>
+                <DialogTitle className="flex items-center gap-4 text-2xl text-cyber-light">
+                  <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center`}>
+                    <service.icon className="h-6 w-6 text-white" />
+                  </div>
+                  {service.title}
+                </DialogTitle>
+              </DialogHeader>
+              
+              <div className="grid md:grid-cols-2 gap-8 mt-6">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-lg font-semibold text-purple-400 mb-3">Service Overview</h4>
+                    <p className="text-cyber-gray leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-purple-400 mb-3">Key Features</h4>
+                    <ul className="space-y-2">
+                      {service.detailedFeatures.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-cyber-gray">
+                          <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-lg font-semibold text-blue-400 mb-3">Key Benefits</h4>
+                    <ul className="space-y-3">
+                      {service.benefits.map((benefit, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-cyber-light font-medium">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl p-6 border border-purple-500/20">
+                    <h4 className="text-lg font-semibold text-cyber-light mb-3">Ready to Get Started?</h4>
+                    <p className="text-cyber-gray mb-4">
+                      Contact our security experts to discuss how this service can protect your organization.
+                    </p>
+                    <Button className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600">
+                      Schedule Consultation
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
 
   return (
     <section id="services" className="py-20 bg-cyber-darker/50">
@@ -158,131 +393,81 @@ export default function ServicesSection() {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="interactive-hover"
-            >
-              <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 group h-full relative overflow-hidden">
-                {/* Interactive glow effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={false}
-                />
+        {/* VAPT Services Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+                Vulnerability Assessment & Penetration Testing Services
+              </span>
+            </h3>
+            <p className="text-lg text-cyber-gray max-w-2xl mx-auto">
+              Comprehensive security testing to identify and exploit vulnerabilities across your entire infrastructure.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {vaptServices.map((service, index) => (
+              <ServiceCard key={service.title} service={service} index={index} />
+            ))}
+          </div>
+        </motion.div>
 
-                <CardContent className="p-8 relative z-10">
-                  <div className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center mb-6 animate-pulse-glow`}>
-                    <service.icon className="h-7 w-7 text-white" />
-                  </div>
+        {/* Special Services Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-yellow-500 to-red-500 bg-clip-text text-transparent">
+                Special Services
+              </span>
+            </h3>
+            <p className="text-lg text-cyber-gray max-w-2xl mx-auto">
+              Advanced cybersecurity services including threat simulation, monitoring, and specialized security assessments.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {specialServices.map((service, index) => (
+              <ServiceCard key={service.title} service={service} index={index} />
+            ))}
+          </div>
+        </motion.div>
 
-                  <h3 className="text-2xl font-bold mb-4 text-cyber-light group-hover:text-purple-300 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-cyber-gray mb-6 leading-relaxed group-hover:text-cyber-light transition-colors duration-300">
-                    {service.description}
-                  </p>
-
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        className="text-purple-500 hover:text-blue-500 hover:bg-purple-500/10 transition-colors duration-300 font-medium p-0 group-hover:translate-x-2"
-                        onClick={() => setSelectedService(service)}
-                      >
-                        Learn More 
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-cyber-navy/95 backdrop-blur-lg border border-purple-500/30">
-                      <DialogHeader>
-                        <DialogTitle className="flex items-center gap-4 text-2xl text-cyber-light">
-                          <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center`}>
-                            <service.icon className="h-6 w-6 text-white" />
-                          </div>
-                          {service.title}
-                        </DialogTitle>
-                      </DialogHeader>
-                      
-                      <div className="grid md:grid-cols-2 gap-8 mt-6">
-                        {/* Left Column - Description & Features */}
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="text-lg font-semibold text-purple-400 mb-3">Service Overview</h4>
-                            <p className="text-cyber-gray leading-relaxed">
-                              {service.description}
-                            </p>
-                          </div>
-                          
-                          <div>
-                            <h4 className="text-lg font-semibold text-purple-400 mb-3">Key Features</h4>
-                            <ul className="space-y-2">
-                              {service.detailedFeatures.map((feature, idx) => (
-                                <li key={idx} className="flex items-start gap-3 text-cyber-gray">
-                                  <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-
-                        {/* Right Column - Benefits */}
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="text-lg font-semibold text-blue-400 mb-3">Key Benefits</h4>
-                            <ul className="space-y-3">
-                              {service.benefits.map((benefit, idx) => (
-                                <li key={idx} className="flex items-start gap-3">
-                                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                                  <span className="text-cyber-light font-medium">{benefit}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          
-                          <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl p-6 border border-purple-500/20">
-                            <h4 className="text-lg font-semibold text-cyber-light mb-3">Ready to Get Started?</h4>
-                            <p className="text-cyber-gray mb-4">
-                              Contact our security experts to discuss how this service can protect your organization.
-                            </p>
-                            <Button className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600">
-                              Schedule Consultation
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                </CardContent>
-
-                {/* Animated border */}
-                <motion.div
-                  className="absolute inset-0 rounded-lg border-2 border-transparent bg-gradient-to-r from-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ 
-                    background: "linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.1), transparent, rgba(59, 130, 246, 0.1), transparent)",
-                    backgroundSize: "400% 400%"
-                  }}
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                />
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        {/* Training Services Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent">
+                Training Services
+              </span>
+            </h3>
+            <p className="text-lg text-cyber-gray max-w-2xl mx-auto">
+              Comprehensive cybersecurity training programs to build a security-conscious workforce.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-full max-w-md">
+              {trainingServices.map((service, index) => (
+                <ServiceCard key={service.title} service={service} index={index} />
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
