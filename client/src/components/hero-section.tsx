@@ -158,7 +158,12 @@ export default function HeroSection() {
           <Zap className="h-5 w-5" />
         </motion.div>
         <motion.div
-      />
+          className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-cyan-400 rounded-full opacity-50 cursor-pointer"
+          animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+          whileHover={{ scale: 2, opacity: 1 }}
+        />
+      </div>
     </section>
   );
 }
