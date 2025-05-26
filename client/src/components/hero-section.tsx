@@ -100,11 +100,12 @@ export default function HeroSection() {
               Start Protection
             </Button>
             <Button
+              onClick={() => scrollToSection("services")}
               variant="outline"
               className="border-2 border-purple-500/50 text-purple-500 bg-transparent hover:bg-purple-500/10 hover:border-purple-500 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105"
             >
               <Play className="mr-2 h-5 w-5" />
-              Watch Demo
+              Services We Offer
             </Button>
           </div>
           
