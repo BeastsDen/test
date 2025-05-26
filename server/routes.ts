@@ -72,9 +72,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
                   <div class="field">
                     <div class="label">🛡️ Services Interested In:</div>
                     <div class="services-list">
-                      ${contactData.services.map(service => `
-                        <div class="service-item">✓ ${service}</div>
-                      `).join('')}
+                      ${contactData.services.length > 0 
+                        ? contactData.services.map(service => `
+                        <div class="service-item">• ${service}</div>
+                      `).join('')
+                        : '<div class="service-item">No services selected</div>'
+                      }
                     </div>
                     <p style="margin: 10px 0 0 0; font-size: 12px; color: #666;">
                       Total: ${contactData.services.length} service${contactData.services.length > 1 ? 's' : ''} selected
