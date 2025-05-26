@@ -130,62 +130,118 @@ export default function AboutSection() {
                 </div>
 
                 {/* Expert Certifications */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-cyber-light mb-4 text-center">Our Expert Certifications</h3>
+                <div className="space-y-6">
+                  <h3 className="text-2xl font-bold text-center bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent mb-6">
+                    Expert Certifications
+                  </h3>
                   
-                  <motion.div
-                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-red-500"
-                    whileHover={{ scale: 1.02, borderColor: "#ef4444" }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <span className="text-cyber-gray font-medium">OSCP</span>
-                    <span className="text-sm text-red-400 font-semibold">Offensive Security</span>
-                  </motion.div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* OSCP */}
+                    <motion.div
+                      className="bg-gradient-to-br from-cyber-darker/60 to-cyber-navy/40 backdrop-blur-sm rounded-xl p-6 border border-red-500/30 hover:border-red-500/60 transition-all duration-300"
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center border border-red-500/40">
+                          <span className="text-red-400 font-bold text-lg">OS</span>
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-bold text-cyber-light">OSCP</h4>
+                          <p className="text-sm text-red-400">Offensive Security</p>
+                        </div>
+                      </div>
+                    </motion.div>
 
-                  <motion.div
-                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-blue-500"
-                    whileHover={{ scale: 1.02, borderColor: "#3b82f6" }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                  >
-                    <span className="text-cyber-gray font-medium">CEH Masters</span>
-                    <span className="text-sm text-blue-400 font-semibold">EC-Council</span>
-                  </motion.div>
+                    {/* CEH Masters */}
+                    <motion.div
+                      className="bg-gradient-to-br from-cyber-darker/60 to-cyber-navy/40 backdrop-blur-sm rounded-xl p-6 border border-blue-500/30 hover:border-blue-500/60 transition-all duration-300"
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                    >
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center border border-blue-500/40">
+                          <span className="text-blue-400 font-bold text-lg">EC</span>
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-bold text-cyber-light">CEH Masters</h4>
+                          <p className="text-sm text-blue-400">EC-Council</p>
+                        </div>
+                      </div>
+                    </motion.div>
 
-                  <motion.div
-                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-green-500"
-                    whileHover={{ scale: 1.02, borderColor: "#22c55e" }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    <span className="text-cyber-gray font-medium">ISO 27001</span>
-                    <span className="text-sm text-green-400 font-semibold">Lead Auditor</span>
-                  </motion.div>
+                    {/* ISO 27001 */}
+                    <motion.div
+                      className="bg-gradient-to-br from-cyber-darker/60 to-cyber-navy/40 backdrop-blur-sm rounded-xl p-6 border border-green-500/30 hover:border-green-500/60 transition-all duration-300"
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center border border-green-500/40">
+                          <span className="text-green-400 font-bold text-sm">ISO</span>
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-bold text-cyber-light">ISO 27001</h4>
+                          <p className="text-sm text-green-400">Lead Auditor</p>
+                        </div>
+                      </div>
+                    </motion.div>
 
-                  <motion.div
-                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-purple-500"
-                    whileHover={{ scale: 1.02, borderColor: "#a855f7" }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                  >
-                    <span className="text-cyber-gray font-medium">eWPTXv2</span>
-                    <span className="text-sm text-purple-400 font-semibold">eLearnSecurity</span>
-                  </motion.div>
+                    {/* eWPTXv2 */}
+                    <motion.div
+                      className="bg-gradient-to-br from-cyber-darker/60 to-cyber-navy/40 backdrop-blur-sm rounded-xl p-6 border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300"
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                    >
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500/40">
+                          <span className="text-purple-400 font-bold text-xs">INE</span>
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-bold text-cyber-light">eWPTXv2</h4>
+                          <p className="text-sm text-purple-400">INE Security</p>
+                        </div>
+                      </div>
+                    </motion.div>
 
+                    {/* AWS Security */}
+                    <motion.div
+                      className="bg-gradient-to-br from-cyber-darker/60 to-cyber-navy/40 backdrop-blur-sm rounded-xl p-6 border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300 sm:col-span-2"
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                      <div className="flex items-center justify-center space-x-4">
+                        <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center border border-orange-500/40">
+                          <span className="text-orange-400 font-bold text-sm">AWS</span>
+                        </div>
+                        <div className="text-center">
+                          <h4 className="text-lg font-bold text-cyber-light">AWS Certified Security</h4>
+                          <p className="text-sm text-orange-400">Specialty Certification</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Trust Indicators */}
                   <motion.div
-                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-orange-500"
-                    whileHover={{ scale: 1.02, borderColor: "#f97316" }}
+                    className="mt-8 p-4 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-lg border border-purple-500/20"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
                   >
-                    <span className="text-cyber-gray font-medium">AWS Security</span>
-                    <span className="text-sm text-orange-400 font-semibold">Specialty</span>
+                    <p className="text-center text-cyber-gray text-sm">
+                      <span className="text-purple-400 font-semibold">Industry-leading certifications</span> ensuring the highest standards of cybersecurity expertise
+                    </p>
                   </motion.div>
                 </div>
 
