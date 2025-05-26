@@ -67,7 +67,158 @@ export default function AboutSection() {
             </div>
           </motion.div>
           
-          
+          {/* Visual Elements */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            {/* Animated Graphics */}
+            <div className="relative">
+              {/* Main Visual Card */}
+              <Card className="bg-cyber-navy/40 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-8 relative overflow-hidden">
+                {/* Animated Background Pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-0 left-0 w-full h-full">
+                    {[...Array(6)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-2 h-2 bg-purple-500 rounded-full"
+                        style={{
+                          left: `${20 + (i * 15)}%`,
+                          top: `${20 + (i * 10)}%`,
+                        }}
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.3, 0.8, 0.3],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: i * 0.5,
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Security Shield Visualization */}
+                <div className="mb-8 flex justify-center">
+                  <motion.div
+                    className="relative w-32 h-32"
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  >
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 border-2 border-purple-500/50"></div>
+                    <motion.div
+                      className="absolute inset-4 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-400/20 border border-blue-500/50"
+                      animate={{ rotate: [360, 0] }}
+                      transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    />
+                    <div className="absolute inset-8 rounded-full bg-gradient-to-r from-purple-400/30 to-purple-500/30 flex items-center justify-center">
+                      <motion.div
+                        className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <span className="text-white font-bold text-sm">🛡️</span>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Animated Stats */}
+                <div className="space-y-6">
+                  <motion.div
+                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <span className="text-cyber-gray">Years of Experience</span>
+                    <motion.span
+                      className="text-2xl font-bold text-purple-500"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 1 }}
+                    >
+                      15+
+                    </motion.span>
+                  </motion.div>
+
+                  <motion.div
+                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <span className="text-cyber-gray">Security Experts</span>
+                    <motion.span
+                      className="text-2xl font-bold text-blue-500"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 1, delay: 0.2 }}
+                    >
+                      50+
+                    </motion.span>
+                  </motion.div>
+
+                  <motion.div
+                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <span className="text-cyber-gray">Global Reach</span>
+                    <motion.span
+                      className="text-2xl font-bold text-purple-400"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 1, delay: 0.4 }}
+                    >
+                      40+ Countries
+                    </motion.span>
+                  </motion.div>
+                </div>
+
+                {/* Floating Elements */}
+                <div className="absolute top-4 right-4">
+                  <motion.div
+                    className="w-3 h-3 bg-purple-500 rounded-full"
+                    animate={{
+                      y: [-10, 10, -10],
+                      opacity: [0.5, 1, 0.5],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  />
+                </div>
+                <div className="absolute bottom-4 left-4">
+                  <motion.div
+                    className="w-2 h-2 bg-blue-500 rounded-full"
+                    animate={{
+                      y: [10, -10, 10],
+                      opacity: [0.5, 1, 0.5],
+                    }}
+                    transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+                  />
+                </div>
+              </Card>
+
+              {/* Additional floating cards */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg backdrop-blur-sm border border-purple-500/30"
+                animate={{
+                  y: [-5, 5, -5],
+                  rotate: [0, 5, 0, -5, 0],
+                }}
+                transition={{ duration: 6, repeat: Infinity }}
+              />
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-blue-500/20 to-purple-400/20 rounded-full backdrop-blur-sm border border-blue-500/30"
+                animate={{
+                  y: [5, -5, 5],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ duration: 5, repeat: Infinity, delay: 2 }}
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
