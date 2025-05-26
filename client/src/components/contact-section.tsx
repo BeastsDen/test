@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -16,7 +17,23 @@ interface ContactFormData {
   email: string;
   company: string;
   message: string;
+  services: string[];
 }
+
+const availableServices = [
+  "Internal Threat Simulation (Network VAPT)",
+  "Web Application VAPT (Web VAPT)",
+  "Mobile Application VAPT (Mobile VAPT)",
+  "Active Directory VAPT (AD-VAPT)",
+  "Cloud Security VAPT (CS-VAPT)",
+  "Dark Web Breach Analysis (DWBA)",
+  "External Threat Simulation (Red Teaming)",
+  "Strategic Targeted Phishing Simulations (STPS)",
+  "Physical Attack Simulation (PAS)",
+  "Secure Source Code Review",
+  "Active Threat Deception & Intrusion Detection (ATDID)",
+  "Staff Training and Awareness Sessions"
+];
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -26,7 +43,26 @@ export default function ContactSection() {
     email: "",
     company: "",
     message: "",
+    services: [],
   });
+
+  // Listen for service selection from other components
+  useEffect(() => {
+    const handleServiceSelection = (event: CustomEvent) => {
+      const { serviceName } = event.detail;
+      setFormData(prev => ({
+        ...prev,
+        services: prev.services.includes(serviceName) 
+          ? prev.services 
+          : [...prev.services, serviceName]
+      }));
+    };
+
+    window.addEventListener('selectService', handleServiceSelection as EventListener);
+    return () => {
+      window.removeEventListener('selectService', handleServiceSelection as EventListener);
+    };
+  }, []);
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
@@ -44,6 +80,7 @@ export default function ContactSection() {
         email: "",
         company: "",
         message: "",
+        services: [],
       });
     },
     onError: (error: Error) => {
@@ -58,6 +95,22 @@ export default function ContactSection() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleServiceChange = (serviceName: string, checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      services: checked 
+        ? [...prev.services, serviceName]
+        : prev.services.filter(s => s !== serviceName)
+    }));
+  };
+
+  const handleSelectAllServices = (checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      services: checked ? [...availableServices] : []
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -167,6 +220,47 @@ export default function ContactSection() {
                       className="bg-cyber-darker border-purple-500/30 text-cyber-light focus:border-purple-500 transition-colors duration-300"
                       placeholder="Your Company"
                     />
+                  </div>
+
+                  <div>
+                    <Label className="text-cyber-gray mb-3 block">
+                      Services Interested In
+                    </Label>
+                    <div className="space-y-3 max-h-40 overflow-y-auto bg-cyber-darker/30 p-4 rounded-lg border border-purple-500/20">
+                      {/* Select All option */}
+                      <div className="flex items-center space-x-3">
+                        <Checkbox
+                          id="select-all"
+                          checked={formData.services.length === availableServices.length}
+                          onCheckedChange={(checked) => handleSelectAllServices(checked as boolean)}
+                          className="border-purple-500/30 data-[state=checked]:bg-purple-500 data-[state=checked]:border-purple-500"
+                        />
+                        <Label htmlFor="select-all" className="text-purple-400 font-semibold cursor-pointer">
+                          Select All Services
+                        </Label>
+                      </div>
+                      
+                      <div className="border-t border-purple-500/20 pt-3">
+                        {availableServices.map((service) => (
+                          <div key={service} className="flex items-center space-x-3 py-1">
+                            <Checkbox
+                              id={service}
+                              checked={formData.services.includes(service)}
+                              onCheckedChange={(checked) => handleServiceChange(service, checked as boolean)}
+                              className="border-purple-500/30 data-[state=checked]:bg-purple-500 data-[state=checked]:border-purple-500"
+                            />
+                            <Label htmlFor={service} className="text-cyber-gray hover:text-cyber-light cursor-pointer text-sm">
+                              {service}
+                            </Label>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {formData.services.length > 0 && (
+                      <p className="text-xs text-purple-400 mt-2">
+                        {formData.services.length} service{formData.services.length > 1 ? 's' : ''} selected
+                      </p>
+                    )}
                   </div>
                   
                   <div>

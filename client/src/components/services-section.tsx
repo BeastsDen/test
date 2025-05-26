@@ -6,6 +6,20 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Shield, Lock, Eye, Bug, GraduationCap, ClipboardCheck, ArrowRight, Server, AlertTriangle, FileCheck, Zap, Users, Globe, CheckCircle, Network, Smartphone, Cloud, Search, Target, Code, UserCheck } from "lucide-react";
 import { useState } from "react";
 
+// Function to scroll to a specific section
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+// Function to pass selected service to contact form
+const selectServiceInContact = (serviceName: string) => {
+  // Dispatch custom event with service data
+  window.dispatchEvent(new CustomEvent('selectService', { detail: { serviceName } }));
+};
+
 const vaptServices = [
   {
     icon: Network,
@@ -269,6 +283,18 @@ const trainingServices = [
 
 export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState(null);
+  const [openDialogs, setOpenDialogs] = useState({});
+
+  const handleScheduleConsultation = (serviceName: string) => {
+    // Close the dialog
+    setOpenDialogs(prev => ({ ...prev, [serviceName]: false }));
+    // Select the service in contact form
+    selectServiceInContact(serviceName);
+    // Scroll to contact section
+    setTimeout(() => {
+      scrollToSection('contact');
+    }, 100);
+  };
 
   const ServiceCard = ({ service, index }) => (
     <motion.div
@@ -299,12 +325,17 @@ export default function ServicesSection() {
             {service.description}
           </p>
 
-          <Dialog>
+          <Dialog 
+            open={openDialogs[service.title] || false}
+            onOpenChange={(open) => {
+              setOpenDialogs(prev => ({ ...prev, [service.title]: open }));
+              if (open) setSelectedService(service);
+            }}
+          >
             <DialogTrigger asChild>
               <Button
                 variant="ghost"
                 className="text-purple-500 hover:text-blue-500 hover:bg-purple-500/10 transition-colors duration-300 font-medium p-0 group-hover:translate-x-2"
-                onClick={() => setSelectedService(service)}
               >
                 Learn More 
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -360,7 +391,10 @@ export default function ServicesSection() {
                     <p className="text-cyber-gray mb-4">
                       Contact our security experts to discuss how this service can protect your organization.
                     </p>
-                    <Button className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600">
+                    <Button 
+                      className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600"
+                      onClick={() => handleScheduleConsultation(service.title)}
+                    >
                       Schedule Consultation
                     </Button>
                   </div>
