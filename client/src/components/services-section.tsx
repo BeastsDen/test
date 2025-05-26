@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -350,7 +349,7 @@ export default function ServicesSection() {
                   {service.title}
                 </DialogTitle>
               </DialogHeader>
-              
+
               <div className="grid md:grid-cols-2 gap-8 mt-6">
                 <div className="space-y-6">
                   <div>
@@ -359,7 +358,7 @@ export default function ServicesSection() {
                       {service.description}
                     </p>
                   </div>
-                  
+
                   <div>
                     <h4 className="text-lg font-semibold text-purple-400 mb-3">Key Features</h4>
                     <ul className="space-y-2">
@@ -385,7 +384,7 @@ export default function ServicesSection() {
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl p-6 border border-purple-500/20">
                     <h4 className="text-lg font-semibold text-cyber-light mb-3">Ready to Get Started?</h4>
                     <p className="text-cyber-gray mb-4">
@@ -408,21 +407,21 @@ export default function ServicesSection() {
   );
 
   return (
-    <section id="services" className="py-20 bg-cyber-darker/50">
+    <section id="services" className="mobile-compact bg-cyber-darker/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-4 sm:mb-6"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
               Our Services
             </span>
           </h2>
-          <p className="text-xl text-cyber-gray max-w-3xl mx-auto">
+          <p className="mobile-text-compact text-cyber-gray max-w-3xl mx-auto">
             Comprehensive cybersecurity solutions tailored to protect your organization from sophisticated threats.
           </p>
         </motion.div>
@@ -433,7 +432,7 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mobile-margin-compact"
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">
@@ -458,7 +457,7 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mobile-margin-compact"
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">

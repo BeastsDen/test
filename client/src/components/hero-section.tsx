@@ -7,7 +7,7 @@ export default function HeroSection() {
   const scrollToSection = useSmoothScroll();
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section id="home" className="mobile-hero-compact flex items-center justify-center relative overflow-hidden pt-16">
       {/* Animated Background with Grid */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyber-dark via-cyber-darker to-cyber-navy"></div>
       <div className="absolute inset-0 cyber-grid"></div>
@@ -79,7 +79,7 @@ export default function HeroSection() {
         >
 
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-purple-500 via-purple-400 to-blue-500 bg-clip-text text-transparent">
               Secure Your
             </span>
@@ -87,7 +87,7 @@ export default function HeroSection() {
             <span className="text-cyber-light">Digital Future</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-cyber-gray mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-cyber-gray mb-6 sm:mb-8 max-w-3xl mx-auto mobile-text-compact">
             Advanced cybersecurity solutions that protect your business from evolving threats while empowering digital transformation.
           </p>
 
@@ -110,18 +110,18 @@ export default function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mt-8 sm:mt-16 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-500 mb-2">99.9%</div>
-              <div className="text-cyber-gray">Threat Detection</div>
+              <div className="text-2xl sm:text-3xl font-bold text-purple-500 mb-1 sm:mb-2">99.9%</div>
+              <div className="text-cyber-gray text-sm sm:text-base">Threat Detection</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-500 mb-2">24/7</div>
-              <div className="text-cyber-gray">Monitoring</div>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-500 mb-1 sm:mb-2">24/7</div>
+              <div className="text-cyber-gray text-sm sm:text-base">Monitoring</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-400 mb-2">500+</div>
-              <div className="text-cyber-gray">Protected Clients</div>
+              <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-1 sm:mb-2">500+</div>
+              <div className="text-cyber-gray text-sm sm:text-base">Protected Clients</div>
             </div>
           </div>
         </motion.div>

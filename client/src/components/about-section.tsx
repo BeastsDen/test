@@ -4,7 +4,7 @@ import { Target, Eye } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-cyber-dark to-cyber-darker relative overflow-hidden">
+    <section id="about" className="mobile-compact bg-gradient-to-br from-cyber-dark to-cyber-darker relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-500 to-blue-500 transform rotate-12 scale-150"></div>
@@ -19,15 +19,15 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
                 About Hackure
               </span>
             </h2>
-            <p className="text-xl text-cyber-gray mb-8 leading-relaxed">
+            <p className="mobile-text-compact text-cyber-gray mb-4 sm:mb-8">
               Founded by cybersecurity experts with decades of experience, Hackure is dedicated to protecting organizations from the ever-evolving landscape of cyber threats.
             </p>
-            <p className="text-lg text-cyber-gray mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-cyber-gray mb-4 sm:mb-8 mobile-text-compact">
               Our team combines cutting-edge technology with deep industry knowledge to deliver comprehensive security solutions that adapt to your unique business needs. We believe that effective cybersecurity is not just about technology—it's about understanding your business and creating tailored protection strategies.
             </p>
             
@@ -135,10 +135,10 @@ export default function AboutSection() {
                     Expert Certifications
                   </h3>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 mobile-grid-compact">
                     {/* OSCP */}
                     <motion.div
-                      className="bg-gradient-to-br from-cyber-darker/60 to-cyber-navy/40 backdrop-blur-sm rounded-xl p-6 border border-red-500/30 hover:border-red-500/60 transition-all duration-300"
+                      className="bg-gradient-to-br from-cyber-darker/60 to-cyber-navy/40 backdrop-blur-sm rounded-xl p-3 sm:p-6 border border-red-500/30 hover:border-red-500/60 transition-all duration-300"
                       whileHover={{ scale: 1.05, y: -5 }}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}

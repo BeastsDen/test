@@ -138,7 +138,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-cyber-darker/80">
+    <section id="contact" className="mobile-compact bg-cyber-darker/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -147,17 +147,17 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
-          <p className="text-xl text-cyber-gray max-w-3xl mx-auto">
+          <p className="mobile-text-compact text-cyber-gray max-w-3xl mx-auto">
             Ready to secure your digital infrastructure? Let's discuss how we can protect your organization.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -166,9 +166,9 @@ export default function ContactSection() {
             viewport={{ once: true }}
           >
             <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-cyber-light">Send us a message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <CardContent className="mobile-card-compact">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-cyber-light">Send us a message</h3>
+                <form onSubmit={handleSubmit} className="mobile-space-compact">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="firstName" className="text-cyber-gray mb-2 block">
