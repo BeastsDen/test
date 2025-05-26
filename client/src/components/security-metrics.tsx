@@ -55,13 +55,21 @@ export default function TestimonialsSection() {
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+      // Card width (288px for w-72) + gap (16px for gap-4) = 304px on mobile
+      // Card width (384px for w-96) + gap (24px for gap-6) = 408px on desktop
+      const isMobile = window.innerWidth < 640;
+      const scrollAmount = isMobile ? 304 : 408;
+      scrollRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+      // Card width (288px for w-72) + gap (16px for gap-4) = 304px on mobile
+      // Card width (384px for w-96) + gap (24px for gap-6) = 408px on desktop
+      const isMobile = window.innerWidth < 640;
+      const scrollAmount = isMobile ? 304 : 408;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
