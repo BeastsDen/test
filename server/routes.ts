@@ -30,12 +30,81 @@ export async function registerRoutes(app: Express): Promise<Server> {
           to: 'maliaakash09@gmail.com',
           subject: `New Contact Form Submission from ${contactData.firstName} ${contactData.lastName}`,
           html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${contactData.firstName} ${contactData.lastName}</p>
-            <p><strong>Email:</strong> ${contactData.email}</p>
-            <p><strong>Company:</strong> ${contactData.company || 'Not provided'}</p>
-            <p><strong>Message:</strong></p>
-            <p>${contactData.message}</p>
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+                .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
+                .content { background: #f9f9f9; padding: 20px; border-radius: 0 0 8px 8px; }
+                .field { margin-bottom: 15px; }
+                .label { font-weight: bold; color: #555; }
+                .value { margin-top: 5px; }
+                .services-list { background: white; padding: 15px; border-radius: 5px; border-left: 4px solid #667eea; }
+                .service-item { padding: 5px 0; border-bottom: 1px solid #eee; }
+                .service-item:last-child { border-bottom: none; }
+                .message-box { background: white; padding: 15px; border-radius: 5px; border: 1px solid #ddd; white-space: pre-wrap; }
+              </style>
+            </head>
+            <body>
+              <div class="container">
+                <div class="header">
+                  <h2 style="margin: 0;">🔒 New Contact Form Submission</h2>
+                  <p style="margin: 10px 0 0 0; opacity: 0.9;">Hackure Cybersecurity</p>
+                </div>
+                <div class="content">
+                  <div class="field">
+                    <div class="label">👤 Full Name:</div>
+                    <div class="value">${contactData.firstName} ${contactData.lastName}</div>
+                  </div>
+                  
+                  <div class="field">
+                    <div class="label">📧 Email Address:</div>
+                    <div class="value"><a href="mailto:${contactData.email}">${contactData.email}</a></div>
+                  </div>
+                  
+                  <div class="field">
+                    <div class="label">🏢 Company:</div>
+                    <div class="value">${contactData.company || 'Not provided'}</div>
+                  </div>
+                  
+                  ${contactData.services && contactData.services.length > 0 ? `
+                  <div class="field">
+                    <div class="label">🛡️ Services Interested In:</div>
+                    <div class="services-list">
+                      ${contactData.services.map(service => `
+                        <div class="service-item">✓ ${service}</div>
+                      `).join('')}
+                    </div>
+                    <p style="margin: 10px 0 0 0; font-size: 12px; color: #666;">
+                      Total: ${contactData.services.length} service${contactData.services.length > 1 ? 's' : ''} selected
+                    </p>
+                  </div>
+                  ` : ''}
+                  
+                  <div class="field">
+                    <div class="label">💬 Message:</div>
+                    <div class="message-box">${contactData.message}</div>
+                  </div>
+                  
+                  <div style="margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 5px; border-left: 4px solid #2196F3;">
+                    <p style="margin: 0; font-size: 14px; color: #1565C0;">
+                      <strong>📅 Submitted:</strong> ${new Date().toLocaleString('en-US', { 
+                        timeZone: 'Asia/Kolkata',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit'
+                      })} IST
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </body>
+            </html>
           `
         });
       } catch (emailError) {
