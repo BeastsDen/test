@@ -82,6 +82,9 @@ export default function AboutSection() {
                   src="/dashboard-metrics.png" 
                   alt="Security Metrics Dashboard" 
                   className="w-full h-auto rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
               </div>
               <div className="grid grid-cols-3 gap-4 mb-8">
