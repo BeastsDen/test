@@ -153,33 +153,7 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-lg text-cyber-gray mb-6">
-            Join hundreds of satisfied clients who trust Hackure with their cybersecurity needs.
-          </p>
-          <div className="flex items-center justify-center space-x-8 text-cyber-gray">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-purple-500">500+</div>
-              <div className="text-sm">Protected Clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-500">100%</div>
-              <div className="text-sm">Client Satisfaction</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-purple-400">24/7</div>
-              <div className="text-sm">Support Available</div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+        </div>
 
       <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar {
