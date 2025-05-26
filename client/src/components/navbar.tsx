@@ -60,65 +60,31 @@ export default function Navbar() {
                     className="flex flex-col items-center"
                   >
                     {/* Circular Logo */}
-                    <motion.div
-                      className="w-16 h-16 mb-3"
+                    <motion.img
+                      src="/trans logo_1748282037813.png"
+                      alt="Hackure Logo"
+                      className="w-16 h-16 mb-3 object-contain"
                       exit={{ x: -50, y: 10, scale: 0.5 }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
-                    >
-                      <svg
-                        viewBox="0 0 200 200"
-                        className="w-full h-full"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        {/* Outer ring */}
-                        <circle cx="100" cy="100" r="90" fill="none" stroke="url(#gradient1)" strokeWidth="8" strokeDasharray="20 10" strokeLinecap="round"/>
-                        {/* Middle ring */}
-                        <circle cx="100" cy="100" r="70" fill="none" stroke="url(#gradient2)" strokeWidth="6" strokeDasharray="15 8" strokeLinecap="round"/>
-                        {/* Inner ring */}
-                        <circle cx="100" cy="100" r="50" fill="none" stroke="url(#gradient3)" strokeWidth="4" strokeDasharray="10 6" strokeLinecap="round"/>
-                        {/* Center circle */}
-                        <circle cx="100" cy="100" r="30" fill="url(#centerGradient)"/>
-                        
-                        {/* Gradients */}
-                        <defs>
-                          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#8B5CF6" />
-                            <stop offset="50%" stopColor="#A855F7" />
-                            <stop offset="100%" stopColor="#7C3AED" />
-                          </linearGradient>
-                          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#A855F7" />
-                            <stop offset="100%" stopColor="#9333EA" />
-                          </linearGradient>
-                          <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#C084FC" />
-                            <stop offset="100%" stopColor="#A855F7" />
-                          </linearGradient>
-                          <radialGradient id="centerGradient">
-                            <stop offset="0%" stopColor="#F3E8FF" stopOpacity="0.1" />
-                            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.3" />
-                          </radialGradient>
-                        </defs>
-                      </svg>
-                    </motion.div>
+                    />
                     
                     {/* Company Name */}
-                    <motion.div
-                      className="text-white font-bold text-xl tracking-wider mb-1"
+                    <motion.img
+                      src="/trans comp_1748282026776.png"
+                      alt="Hackure Company"
+                      className="h-6 mb-2 object-contain"
                       exit={{ y: -20, x: 30, opacity: 0 }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
-                    >
-                      HACKURE
-                    </motion.div>
+                    />
                     
                     {/* Slogan */}
-                    <motion.div
-                      className="text-purple-300 text-xs tracking-widest text-center px-2"
+                    <motion.img
+                      src="/trans slogan_1748282043833.png"
+                      alt="Offense Fuels Our Defense"
+                      className="h-4 object-contain"
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                    >
-                      OFFENSE FUELS OUR DEFENSE
-                    </motion.div>
+                    />
                   </motion.div>
                 ) : (
                   // Compact logo when scrolled - horizontal layout
@@ -130,48 +96,24 @@ export default function Navbar() {
                     className="flex items-center space-x-3"
                   >
                     {/* Compact Circular Logo */}
-                    <motion.div
-                      className="w-10 h-10"
+                    <motion.img
+                      src="/trans logo_1748282037813.png"
+                      alt="Hackure Logo"
+                      className="w-10 h-10 object-contain"
                       initial={{ x: 50, y: -10, scale: 1.6 }}
                       animate={{ x: 0, y: 0, scale: 1 }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
-                    >
-                      <svg
-                        viewBox="0 0 200 200"
-                        className="w-full h-full"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        {/* Simplified version for compact state */}
-                        <circle cx="100" cy="100" r="85" fill="none" stroke="url(#compactGradient1)" strokeWidth="10" strokeDasharray="25 15" strokeLinecap="round"/>
-                        <circle cx="100" cy="100" r="60" fill="none" stroke="url(#compactGradient2)" strokeWidth="8" strokeDasharray="20 10" strokeLinecap="round"/>
-                        <circle cx="100" cy="100" r="35" fill="url(#compactCenterGradient)"/>
-                        
-                        <defs>
-                          <linearGradient id="compactGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#8B5CF6" />
-                            <stop offset="100%" stopColor="#7C3AED" />
-                          </linearGradient>
-                          <linearGradient id="compactGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#A855F7" />
-                            <stop offset="100%" stopColor="#9333EA" />
-                          </linearGradient>
-                          <radialGradient id="compactCenterGradient">
-                            <stop offset="0%" stopColor="#F3E8FF" stopOpacity="0.2" />
-                            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.4" />
-                          </radialGradient>
-                        </defs>
-                      </svg>
-                    </motion.div>
+                    />
                     
                     {/* Company Name */}
-                    <motion.div
-                      className="text-white font-bold text-lg tracking-wide"
+                    <motion.img
+                      src="/trans comp_1748282026776.png"
+                      alt="Hackure Company"
+                      className="h-5 object-contain"
                       initial={{ x: -30, y: 20, opacity: 0 }}
                       animate={{ x: 0, y: 0, opacity: 1 }}
                       transition={{ duration: 0.5, ease: "easeInOut", delay: 0.1 }}
-                    >
-                      HACKURE
-                    </motion.div>
+                    />
                   </motion.div>
                 )}
               </AnimatePresence>
