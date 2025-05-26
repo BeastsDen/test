@@ -1,4 +1,4 @@
-import { Shield, Lock, Eye, Zap } from "lucide-react";
+import { Shield, Lock, Eye, Zap, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
