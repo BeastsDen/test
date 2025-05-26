@@ -434,116 +434,17 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="mobile-margin-compact"
         >
-          <div className="text-center mb-6 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">
               <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
-                VAPT Services
+                Vulnerability Assessment & Penetration Testing Services
               </span>
             </h3>
-            <p className="mobile-text-compact text-cyber-gray max-w-2xl mx-auto hidden sm:block">
+            <p className="text-lg text-cyber-gray max-w-2xl mx-auto">
               Comprehensive security testing to identify and exploit vulnerabilities across your entire infrastructure.
             </p>
-            
-            {/* Mobile Collapsible View */}
-            <div className="sm:hidden">
-              <details className="bg-cyber-darker/30 rounded-lg border border-purple-500/20 mb-4">
-                <summary className="p-4 cursor-pointer text-purple-400 font-semibold">
-                  View VAPT Services ({vaptServices.length})
-                </summary>
-                <div className="p-4 pt-0 space-y-3">
-                  {vaptServices.map((service, index) => (
-                    <div key={service.title} className="bg-cyber-navy/30 rounded-lg p-3 border border-purple-500/10">
-                      <div className="flex items-start gap-3">
-                        <div className={`w-8 h-8 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                          <service.icon className="h-4 w-4 text-white" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-semibold text-cyber-light mb-1 leading-tight">{service.title}</h4>
-                          <p className="text-xs text-cyber-gray mb-2 leading-relaxed">{service.description}</p>
-                          <Dialog 
-                            open={openDialogs[service.title] || false}
-                            onOpenChange={(open) => {
-                              setOpenDialogs(prev => ({ ...prev, [service.title]: open }));
-                              if (open) setSelectedService(service);
-                            }}
-                          >
-                            <DialogTrigger asChild>
-                              <Button variant="ghost" size="sm" className="text-purple-400 hover:text-blue-400 p-0 h-auto text-xs">
-                                Learn More →
-                              </Button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-cyber-navy/95 backdrop-blur-lg border border-purple-500/30">
-                              <DialogHeader>
-                                <DialogTitle className="flex items-center gap-4 text-2xl text-cyber-light">
-                                  <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center`}>
-                                    <service.icon className="h-6 w-6 text-white" />
-                                  </div>
-                                  {service.title}
-                                </DialogTitle>
-                              </DialogHeader>
-
-                              <div className="grid md:grid-cols-2 gap-8 mt-6">
-                                <div className="space-y-6">
-                                  <div>
-                                    <h4 className="text-lg font-semibold text-purple-400 mb-3">Service Overview</h4>
-                                    <p className="text-cyber-gray leading-relaxed">
-                                      {service.description}
-                                    </p>
-                                  </div>
-
-                                  <div>
-                                    <h4 className="text-lg font-semibold text-purple-400 mb-3">Key Features</h4>
-                                    <ul className="space-y-2">
-                                      {service.detailedFeatures.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start gap-3 text-cyber-gray">
-                                          <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                                          <span>{feature}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-
-                                <div className="space-y-6">
-                                  <div>
-                                    <h4 className="text-lg font-semibold text-blue-400 mb-3">Key Benefits</h4>
-                                    <ul className="space-y-3">
-                                      {service.benefits.map((benefit, idx) => (
-                                        <li key={idx} className="flex items-start gap-3">
-                                          <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                                          <span className="text-cyber-light font-medium">{benefit}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-
-                                  <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl p-6 border border-purple-500/20">
-                                    <h4 className="text-lg font-semibold text-cyber-light mb-3">Ready to Get Started?</h4>
-                                    <p className="text-cyber-gray mb-4">
-                                      Contact our security experts to discuss how this service can protect your organization.
-                                    </p>
-                                    <Button 
-                                      className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600"
-                                      onClick={() => handleScheduleConsultation(service.title)}
-                                    >
-                                      Schedule Consultation
-                                    </Button>
-                                  </div>
-                                </div>
-                              </div>
-                            </DialogContent>
-                          </Dialog>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </details>
-            </div>
           </div>
-          
-          {/* Desktop Grid View */}
-          <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {vaptServices.map((service, index) => (
               <ServiceCard key={service.title} service={service} index={index} />
             ))}
@@ -558,116 +459,17 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="mobile-margin-compact"
         >
-          <div className="text-center mb-6 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">
               <span className="bg-gradient-to-r from-yellow-500 to-red-500 bg-clip-text text-transparent">
                 Special Services
               </span>
             </h3>
-            <p className="mobile-text-compact text-cyber-gray max-w-2xl mx-auto hidden sm:block">
+            <p className="text-lg text-cyber-gray max-w-2xl mx-auto">
               Advanced cybersecurity services including threat simulation, monitoring, and specialized security assessments.
             </p>
-            
-            {/* Mobile Collapsible View */}
-            <div className="sm:hidden">
-              <details className="bg-cyber-darker/30 rounded-lg border border-yellow-500/20 mb-4">
-                <summary className="p-4 cursor-pointer text-yellow-400 font-semibold">
-                  View Special Services ({specialServices.length})
-                </summary>
-                <div className="p-4 pt-0 space-y-3">
-                  {specialServices.map((service, index) => (
-                    <div key={service.title} className="bg-cyber-navy/30 rounded-lg p-3 border border-yellow-500/10">
-                      <div className="flex items-start gap-3">
-                        <div className={`w-8 h-8 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                          <service.icon className="h-4 w-4 text-white" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-semibold text-cyber-light mb-1 leading-tight">{service.title}</h4>
-                          <p className="text-xs text-cyber-gray mb-2 leading-relaxed">{service.description}</p>
-                          <Dialog 
-                            open={openDialogs[service.title] || false}
-                            onOpenChange={(open) => {
-                              setOpenDialogs(prev => ({ ...prev, [service.title]: open }));
-                              if (open) setSelectedService(service);
-                            }}
-                          >
-                            <DialogTrigger asChild>
-                              <Button variant="ghost" size="sm" className="text-yellow-400 hover:text-red-400 p-0 h-auto text-xs">
-                                Learn More →
-                              </Button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-cyber-navy/95 backdrop-blur-lg border border-purple-500/30">
-                              <DialogHeader>
-                                <DialogTitle className="flex items-center gap-4 text-2xl text-cyber-light">
-                                  <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center`}>
-                                    <service.icon className="h-6 w-6 text-white" />
-                                  </div>
-                                  {service.title}
-                                </DialogTitle>
-                              </DialogHeader>
-
-                              <div className="grid md:grid-cols-2 gap-8 mt-6">
-                                <div className="space-y-6">
-                                  <div>
-                                    <h4 className="text-lg font-semibold text-purple-400 mb-3">Service Overview</h4>
-                                    <p className="text-cyber-gray leading-relaxed">
-                                      {service.description}
-                                    </p>
-                                  </div>
-
-                                  <div>
-                                    <h4 className="text-lg font-semibold text-purple-400 mb-3">Key Features</h4>
-                                    <ul className="space-y-2">
-                                      {service.detailedFeatures.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start gap-3 text-cyber-gray">
-                                          <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                                          <span>{feature}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-
-                                <div className="space-y-6">
-                                  <div>
-                                    <h4 className="text-lg font-semibold text-blue-400 mb-3">Key Benefits</h4>
-                                    <ul className="space-y-3">
-                                      {service.benefits.map((benefit, idx) => (
-                                        <li key={idx} className="flex items-start gap-3">
-                                          <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                                          <span className="text-cyber-light font-medium">{benefit}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-
-                                  <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl p-6 border border-purple-500/20">
-                                    <h4 className="text-lg font-semibold text-cyber-light mb-3">Ready to Get Started?</h4>
-                                    <p className="text-cyber-gray mb-4">
-                                      Contact our security experts to discuss how this service can protect your organization.
-                                    </p>
-                                    <Button 
-                                      className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600"
-                                      onClick={() => handleScheduleConsultation(service.title)}
-                                    >
-                                      Schedule Consultation
-                                    </Button>
-                                  </div>
-                                </div>
-                              </div>
-                            </DialogContent>
-                          </Dialog>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </details>
-            </div>
           </div>
-          
-          {/* Desktop Grid View */}
-          <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {specialServices.map((service, index) => (
               <ServiceCard key={service.title} service={service} index={index} />
             ))}
@@ -681,116 +483,17 @@ export default function ServicesSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="text-center mb-6 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">
               <span className="bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent">
                 Training Services
               </span>
             </h3>
-            <p className="mobile-text-compact text-cyber-gray max-w-2xl mx-auto hidden sm:block">
+            <p className="text-lg text-cyber-gray max-w-2xl mx-auto">
               Comprehensive cybersecurity training programs to build a security-conscious workforce.
             </p>
-            
-            {/* Mobile Collapsible View */}
-            <div className="sm:hidden">
-              <details className="bg-cyber-darker/30 rounded-lg border border-violet-500/20 mb-4">
-                <summary className="p-4 cursor-pointer text-violet-400 font-semibold">
-                  View Training Services ({trainingServices.length})
-                </summary>
-                <div className="p-4 pt-0 space-y-3">
-                  {trainingServices.map((service, index) => (
-                    <div key={service.title} className="bg-cyber-navy/30 rounded-lg p-3 border border-violet-500/10">
-                      <div className="flex items-start gap-3">
-                        <div className={`w-8 h-8 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                          <service.icon className="h-4 w-4 text-white" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-semibold text-cyber-light mb-1 leading-tight">{service.title}</h4>
-                          <p className="text-xs text-cyber-gray mb-2 leading-relaxed">{service.description}</p>
-                          <Dialog 
-                            open={openDialogs[service.title] || false}
-                            onOpenChange={(open) => {
-                              setOpenDialogs(prev => ({ ...prev, [service.title]: open }));
-                              if (open) setSelectedService(service);
-                            }}
-                          >
-                            <DialogTrigger asChild>
-                              <Button variant="ghost" size="sm" className="text-violet-400 hover:text-purple-400 p-0 h-auto text-xs">
-                                Learn More →
-                              </Button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-cyber-navy/95 backdrop-blur-lg border border-purple-500/30">
-                              <DialogHeader>
-                                <DialogTitle className="flex items-center gap-4 text-2xl text-cyber-light">
-                                  <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center`}>
-                                    <service.icon className="h-6 w-6 text-white" />
-                                  </div>
-                                  {service.title}
-                                </DialogTitle>
-                              </DialogHeader>
-
-                              <div className="grid md:grid-cols-2 gap-8 mt-6">
-                                <div className="space-y-6">
-                                  <div>
-                                    <h4 className="text-lg font-semibold text-purple-400 mb-3">Service Overview</h4>
-                                    <p className="text-cyber-gray leading-relaxed">
-                                      {service.description}
-                                    </p>
-                                  </div>
-
-                                  <div>
-                                    <h4 className="text-lg font-semibold text-purple-400 mb-3">Key Features</h4>
-                                    <ul className="space-y-2">
-                                      {service.detailedFeatures.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start gap-3 text-cyber-gray">
-                                          <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                                          <span>{feature}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-
-                                <div className="space-y-6">
-                                  <div>
-                                    <h4 className="text-lg font-semibold text-blue-400 mb-3">Key Benefits</h4>
-                                    <ul className="space-y-3">
-                                      {service.benefits.map((benefit, idx) => (
-                                        <li key={idx} className="flex items-start gap-3">
-                                          <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                                          <span className="text-cyber-light font-medium">{benefit}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-
-                                  <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl p-6 border border-purple-500/20">
-                                    <h4 className="text-lg font-semibold text-cyber-light mb-3">Ready to Get Started?</h4>
-                                    <p className="text-cyber-gray mb-4">
-                                      Contact our security experts to discuss how this service can protect your organization.
-                                    </p>
-                                    <Button 
-                                      className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600"
-                                      onClick={() => handleScheduleConsultation(service.title)}
-                                    >
-                                      Schedule Consultation
-                                    </Button>
-                                  </div>
-                                </div>
-                              </div>
-                            </DialogContent>
-                          </Dialog>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </details>
-            </div>
           </div>
-          
-          {/* Desktop Grid View */}
-          <div className="hidden sm:flex justify-center">
+          <div className="flex justify-center">
             <div className="w-full max-w-md">
               {trainingServices.map((service, index) => (
                 <ServiceCard key={service.title} service={service} index={index} />
