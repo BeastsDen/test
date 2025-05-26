@@ -264,10 +264,18 @@ export default function ContactSection() {
                 <p className="text-gray-300 mb-4">
                   If you're experiencing an active security incident, contact our emergency response team immediately.
                 </p>
-                <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300">
-                  <Phone className="mr-2 h-4 w-4" />
-                  Emergency Hotline
-                </Button>
+                <div className="space-y-3">
+                  <Button 
+                    onClick={() => window.open('tel:+1-800-HACKURE')}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300"
+                  >
+                    <Phone className="mr-2 h-4 w-4" />
+                    Call: +1 (800) HACKURE
+                  </Button>
+                  <p className="text-sm text-gray-400 text-center">
+                    Available 24/7 • Average response time: &lt; 5 minutes
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </motion.div>

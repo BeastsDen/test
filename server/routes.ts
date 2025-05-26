@@ -3,6 +3,16 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { z } from "zod";
+import nodemailer from "nodemailer";
+
+// Email configuration
+const transporter = nodemailer.createTransporter({
+  service: 'gmail', // or your email service
+  auth: {
+    user: process.env.EMAIL_USER, // your email
+    pass: process.env.EMAIL_PASS  // your app password
+  }
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -10,6 +20,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const contactData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(contactData);
+      
+      // Send email notification
+      try {
+        await transporter.sendMail({
+          from: process.env.EMAIL_USER,
+          to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
+          subject: `New Contact Form Submission from ${contactData.firstName} ${contactData.lastName}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${contactData.firstName} ${contactData.lastName}</p>
+            <p><strong>Email:</strong> ${contactData.email}</p>
+            <p><strong>Company:</strong> ${contactData.company || 'Not provided'}</p>
+            <p><strong>Message:</strong></p>
+            <p>${contactData.message}</p>
+          `
+        });
+      } catch (emailError) {
+        console.error("Failed to send email:", emailError);
+        // Continue even if email fails
+      }
       
       res.json({
         success: true,
