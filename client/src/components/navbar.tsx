@@ -56,7 +56,7 @@ export default function Navbar() {
                     key="full-logo"
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="flex flex-col items-center"
                   >
                     {/* Circular Logo */}
@@ -64,8 +64,8 @@ export default function Navbar() {
                       src="/trans logo_1748282037813.png"
                       alt="Hackure Logo"
                       className="w-16 h-16 mb-3 object-contain"
-                      exit={{ x: -50, y: 10, scale: 0.5 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      exit={{ x: -50, y: 10, scale: 0.625 }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     />
                     
                     {/* Company Name */}
@@ -73,8 +73,8 @@ export default function Navbar() {
                       src="/trans comp_1748282026776.png"
                       alt="Hackure Company"
                       className="h-6 mb-2 object-contain"
-                      exit={{ y: -20, x: 30, opacity: 0 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      exit={{ y: -24, x: 30, opacity: 0 }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     />
                     
                     {/* Slogan */}
@@ -82,8 +82,8 @@ export default function Navbar() {
                       src="/trans slogan_1748282043833.png"
                       alt="Offense Fuels Our Defense"
                       className="h-4 object-contain"
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      exit={{ opacity: 0, scale: 0.8, y: 10 }}
+                      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                     />
                   </motion.div>
                 ) : (
@@ -92,7 +92,7 @@ export default function Navbar() {
                     key="compact-logo"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="flex items-center space-x-3"
                   >
                     {/* Compact Circular Logo */}
@@ -102,7 +102,7 @@ export default function Navbar() {
                       className="w-10 h-10 object-contain"
                       initial={{ x: 50, y: -10, scale: 1.6 }}
                       animate={{ x: 0, y: 0, scale: 1 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     />
                     
                     {/* Company Name */}
@@ -110,9 +110,9 @@ export default function Navbar() {
                       src="/trans comp_1748282026776.png"
                       alt="Hackure Company"
                       className="h-5 object-contain"
-                      initial={{ x: -30, y: 20, opacity: 0 }}
+                      initial={{ x: -30, y: 24, opacity: 0 }}
                       animate={{ x: 0, y: 0, opacity: 1 }}
-                      transition={{ duration: 0.5, ease: "easeInOut", delay: 0.1 }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
                     />
                   </motion.div>
                 )}
