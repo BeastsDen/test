@@ -56,6 +56,17 @@ export default function ContactSection() {
           ? prev.services 
           : [...prev.services, serviceName]
       }));
+
+      // Scroll the selected service into view in the center
+      setTimeout(() => {
+        const serviceElement = document.getElementById(serviceName);
+        if (serviceElement) {
+          serviceElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }
+      }, 100);
     };
 
     window.addEventListener('selectService', handleServiceSelection as EventListener);
