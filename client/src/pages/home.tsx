@@ -4,7 +4,7 @@ import AboutSection from "@/components/about-section";
 import ServicesSection from "@/components/services-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
-import TestimonialsSection from "@/components/testimonials-section";
+import TestimonialsSection from "@/components/security-metrics";
 
 export default function Home() {
   return (
