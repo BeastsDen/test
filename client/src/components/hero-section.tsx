@@ -109,21 +109,7 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mt-8 sm:mt-16 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-purple-500 mb-1 sm:mb-2">99.9%</div>
-              <div className="text-cyber-gray text-sm sm:text-base">Threat Detection</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-blue-500 mb-1 sm:mb-2">24/7</div>
-              <div className="text-cyber-gray text-sm sm:text-base">Monitoring</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-1 sm:mb-2">500+</div>
-              <div className="text-cyber-gray text-sm sm:text-base">Protected Clients</div>
-            </div>
-          </div>
+          
         </motion.div>
       </div>
 
