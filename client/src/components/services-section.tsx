@@ -280,127 +280,6 @@ const trainingServices = [
   }
 ];
 
-const ServiceCarousel = ({ title, subtitle, services, gradient }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % services.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
-  };
-
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe) nextSlide();
-    if (isRightSwipe) prevSlide();
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="mobile-margin-compact"
-    >
-      <div className="text-center mb-6 sm:mb-12">
-        <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">
-          <span className={`bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
-            {title}
-          </span>
-        </h3>
-        <p className="text-sm sm:text-lg text-cyber-gray max-w-2xl mx-auto px-4">
-          {subtitle}
-        </p>
-      </div>
-
-      {/* Desktop Grid View */}
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} service={service} index={index} />
-        ))}
-      </div>
-
-      {/* Mobile Carousel View */}
-      <div className="md:hidden">
-        <div 
-          className="relative overflow-hidden"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div 
-            className="flex transition-transform duration-300 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {services.map((service, index) => (
-              <div key={service.title} className="w-full flex-shrink-0 px-4">
-                <ServiceCard service={service} index={index} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Navigation Dots */}
-        <div className="flex justify-center mt-4 space-x-2">
-          {services.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-purple-500 w-6' 
-                  : 'bg-gray-600 hover:bg-gray-500'
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Service Counter */}
-        <div className="text-center mt-2">
-          <span className="text-xs text-cyber-gray">
-            {currentIndex + 1} of {services.length}
-          </span>
-        </div>
-
-        {/* Navigation Arrows */}
-        <div className="flex justify-between items-center mt-4 px-4">
-          <button
-            onClick={prevSlide}
-            className="p-2 rounded-full bg-purple-500/20 hover:bg-purple-500/30 transition-colors"
-            disabled={currentIndex === 0}
-          >
-            <ArrowRight className="h-4 w-4 text-purple-400 rotate-180" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="p-2 rounded-full bg-purple-500/20 hover:bg-purple-500/30 transition-colors"
-            disabled={currentIndex === services.length - 1}
-          >
-            <ArrowRight className="h-4 w-4 text-purple-400" />
-          </button>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
 export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState(null);
   const [openDialogs, setOpenDialogs] = useState({});
@@ -526,6 +405,127 @@ export default function ServicesSection() {
       </Card>
     </motion.div>
   );
+
+  const ServiceCarousel = ({ title, subtitle, services, gradient }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState(0);
+    const [touchEnd, setTouchEnd] = useState(0);
+
+    const nextSlide = () => {
+      setCurrentIndex((prev) => (prev + 1) % services.length);
+    };
+
+    const prevSlide = () => {
+      setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
+    };
+
+    const handleTouchStart = (e) => {
+      setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e) => {
+      setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+      if (!touchStart || !touchEnd) return;
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > 50;
+      const isRightSwipe = distance < -50;
+
+      if (isLeftSwipe) nextSlide();
+      if (isRightSwipe) prevSlide();
+    };
+
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="mobile-margin-compact"
+      >
+        <div className="text-center mb-6 sm:mb-12">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">
+            <span className={`bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+              {title}
+            </span>
+          </h3>
+          <p className="text-sm sm:text-lg text-cyber-gray max-w-2xl mx-auto px-4">
+            {subtitle}
+          </p>
+        </div>
+
+        {/* Desktop Grid View */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} service={service} index={index} />
+          ))}
+        </div>
+
+        {/* Mobile Carousel View */}
+        <div className="md:hidden">
+          <div 
+            className="relative overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div 
+              className="flex transition-transform duration-300 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {services.map((service, index) => (
+                <div key={service.title} className="w-full flex-shrink-0 px-4">
+                  <ServiceCard service={service} index={index} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'bg-purple-500 w-6' 
+                    : 'bg-gray-600 hover:bg-gray-500'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Service Counter */}
+          <div className="text-center mt-2">
+            <span className="text-xs text-cyber-gray">
+              {currentIndex + 1} of {services.length}
+            </span>
+          </div>
+
+          {/* Navigation Arrows */}
+          <div className="flex justify-between items-center mt-4 px-4">
+            <button
+              onClick={prevSlide}
+              className="p-2 rounded-full bg-purple-500/20 hover:bg-purple-500/30 transition-colors"
+              disabled={currentIndex === 0}
+            >
+              <ArrowRight className="h-4 w-4 text-purple-400 rotate-180" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="p-2 rounded-full bg-purple-500/20 hover:bg-purple-500/30 transition-colors"
+              disabled={currentIndex === services.length - 1}
+            >
+              <ArrowRight className="h-4 w-4 text-purple-400" />
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    );
+  };
 
   return (
     <section id="services" className="mobile-compact bg-cyber-darker/50">
