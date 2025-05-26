@@ -77,22 +77,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {/* Logo Integration */}
-          <motion.div 
-            className="mb-8 flex justify-center"
-            animate={{ 
-              boxShadow: [
-                "0 0 5px rgb(139, 92, 246), 0 0 10px rgb(139, 92, 246), 0 0 15px rgb(139, 92, 246)",
-                "0 0 10px rgb(59, 130, 246), 0 0 20px rgb(59, 130, 246), 0 0 30px rgb(59, 130, 246)",
-                "0 0 5px rgb(139, 92, 246), 0 0 10px rgb(139, 92, 246), 0 0 15px rgb(139, 92, 246)"
-              ]
-            }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center font-bold text-2xl text-white">
-              H
-            </div>
-          </motion.div>
+
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-purple-500 via-purple-400 to-blue-500 bg-clip-text text-transparent">
