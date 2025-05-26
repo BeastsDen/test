@@ -85,32 +85,7 @@ export default function Footer() {
             </ul>
           </div>
           
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold text-cyber-light mb-4">Services</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-cyber-gray hover:text-purple-500 transition-colors duration-300">
-                  Threat Detection
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-cyber-gray hover:text-purple-500 transition-colors duration-300">
-                  Data Encryption
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-cyber-gray hover:text-purple-500 transition-colors duration-300">
-                  24/7 Monitoring
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-cyber-gray hover:text-purple-500 transition-colors duration-300">
-                  Security Training
-                </a>
-              </li>
-            </ul>
-          </div>
+          
         </div>
         
         <div className="border-t border-cyber-navy/30 mt-12 pt-8 text-center">
