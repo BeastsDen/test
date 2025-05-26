@@ -109,7 +109,7 @@ export default function TestimonialsSection() {
           {/* Scrolling Testimonials */}
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 px-12"
+            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide pb-4 px-4 sm:px-12 justify-start"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {testimonials.map((testimonial, index) => (
@@ -119,7 +119,7 @@ export default function TestimonialsSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex-none w-80 sm:w-96"
+                className="flex-none w-72 sm:w-96"
               >
                 <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl hover:border-purple-500/40 transition-all duration-300 h-full">
                   <CardContent className="p-4 sm:p-6 h-full flex flex-col text-center sm:text-left">
