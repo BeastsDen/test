@@ -5,12 +5,14 @@ import { insertContactSchema } from "@shared/schema";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 
-// Email configuration
-const transporter = nodemailer.createTransporter({
-  service: 'gmail', // or your email service
+// Email configuration for Hostinger
+const transporter = nodemailer.createTransport({
+  host: 'smtp.hostinger.com',
+  port: 465,
+  secure: true, // SSL/TLS
   auth: {
-    user: process.env.EMAIL_USER, // your email
-    pass: process.env.EMAIL_PASS  // your app password
+    user: process.env.EMAIL_USER, // your Hostinger email
+    pass: process.env.EMAIL_PASS  // your Hostinger email password
   }
 });
 
