@@ -129,51 +129,63 @@ export default function AboutSection() {
                   </motion.div>
                 </div>
 
-                {/* Animated Stats */}
-                <div className="space-y-6">
+                {/* Expert Certifications */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-cyber-light mb-4 text-center">Our Expert Certifications</h3>
+                  
                   <motion.div
-                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg"
-                    whileHover={{ scale: 1.02 }}
+                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-red-500"
+                    whileHover={{ scale: 1.02, borderColor: "#ef4444" }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
                   >
-                    <span className="text-cyber-gray">Years of Experience</span>
-                    <motion.span
-                      className="text-2xl font-bold text-purple-500"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 1 }}
-                    >
-                      15+
-                    </motion.span>
+                    <span className="text-cyber-gray font-medium">OSCP</span>
+                    <span className="text-sm text-red-400 font-semibold">Offensive Security</span>
                   </motion.div>
 
                   <motion.div
-                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg"
-                    whileHover={{ scale: 1.02 }}
+                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-blue-500"
+                    whileHover={{ scale: 1.02, borderColor: "#3b82f6" }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
                   >
-                    <span className="text-cyber-gray">Security Experts</span>
-                    <motion.span
-                      className="text-2xl font-bold text-blue-500"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 1, delay: 0.2 }}
-                    >
-                      50+
-                    </motion.span>
+                    <span className="text-cyber-gray font-medium">CEH Masters</span>
+                    <span className="text-sm text-blue-400 font-semibold">EC-Council</span>
                   </motion.div>
 
                   <motion.div
-                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg"
-                    whileHover={{ scale: 1.02 }}
+                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-green-500"
+                    whileHover={{ scale: 1.02, borderColor: "#22c55e" }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                   >
-                    <span className="text-cyber-gray">Global Reach</span>
-                    <motion.span
-                      className="text-2xl font-bold text-purple-400"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 1, delay: 0.4 }}
-                    >
-                      40+ Countries
-                    </motion.span>
+                    <span className="text-cyber-gray font-medium">ISO 27001</span>
+                    <span className="text-sm text-green-400 font-semibold">Lead Auditor</span>
+                  </motion.div>
+
+                  <motion.div
+                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-purple-500"
+                    whileHover={{ scale: 1.02, borderColor: "#a855f7" }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  >
+                    <span className="text-cyber-gray font-medium">eWPTXv2</span>
+                    <span className="text-sm text-purple-400 font-semibold">eLearnSecurity</span>
+                  </motion.div>
+
+                  <motion.div
+                    className="flex justify-between items-center p-4 bg-cyber-darker/50 rounded-lg border-l-4 border-orange-500"
+                    whileHover={{ scale: 1.02, borderColor: "#f97316" }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    <span className="text-cyber-gray font-medium">AWS Security</span>
+                    <span className="text-sm text-orange-400 font-semibold">Specialty</span>
                   </motion.div>
                 </div>
 
