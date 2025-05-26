@@ -1,61 +1,60 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, TrendingUp, Clock, Users, AlertTriangle, CheckCircle } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
-const metrics = [
+const testimonials = [
   {
-    title: "Threat Prevention",
-    value: "99.9%",
-    icon: Shield,
-    color: "from-green-500 to-green-600",
-    description: "Threats blocked this month"
+    name: "Sarah Johnson",
+    title: "CTO",
+    company: "TechCorp Solutions",
+    content: "Hackure transformed our security posture completely. Their proactive approach and 24/7 monitoring gave us the peace of mind we needed to focus on our core business.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
   },
   {
-    title: "Response Time",
-    value: "< 1 min",
-    icon: Clock,
-    color: "from-blue-500 to-blue-600",
-    description: "Average incident response"
+    name: "Michael Chen",
+    title: "CEO",
+    company: "FinanceFirst Inc",
+    content: "The incident response team at Hackure is exceptional. When we faced a potential breach, they responded within minutes and contained the threat before any damage occurred.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
   },
   {
-    title: "Client Satisfaction",
-    value: "100%",
-    icon: Users,
-    color: "from-purple-500 to-purple-600",
-    description: "Customer satisfaction rate"
+    name: "Jennifer Rodriguez",
+    title: "IT Director",
+    company: "Healthcare Plus",
+    content: "Hackure's compliance expertise helped us achieve SOC 2 certification seamlessly. Their team understood our industry requirements and delivered beyond expectations.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
   },
   {
-    title: "Security Score",
-    value: "98/100",
-    icon: CheckCircle,
-    color: "from-cyan-500 to-cyan-600",
-    description: "Overall security rating"
+    name: "David Park",
+    title: "CISO",
+    company: "Global Manufacturing",
+    content: "Working with Hackure has been a game-changer. Their vulnerability assessments uncovered critical issues we didn't know existed, and their solutions were implemented flawlessly.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+  },
+  {
+    name: "Lisa Thompson",
+    title: "VP of Operations",
+    company: "RetailMax",
+    content: "The security training program from Hackure significantly improved our team's awareness. We've seen a 90% reduction in phishing incidents since implementation.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
+  },
+  {
+    name: "Robert Williams",
+    title: "COO",
+    company: "StartupVentures",
+    content: "As a growing startup, we needed enterprise-level security without the complexity. Hackure delivered exactly that with their scalable solutions and expert guidance.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
   }
 ];
 
-const recentAlerts = [
-  {
-    type: "blocked",
-    title: "Malware Attempt Blocked",
-    time: "2 minutes ago",
-    severity: "high"
-  },
-  {
-    type: "resolved",
-    title: "DDoS Attack Mitigated",
-    time: "15 minutes ago",
-    severity: "critical"
-  },
-  {
-    type: "monitoring",
-    title: "Unusual Traffic Pattern",
-    time: "1 hour ago",
-    severity: "medium"
-  }
-];
-
-export default function SecurityMetrics() {
+export default function TestimonialsSection() {
   return (
     <section className="py-20 bg-cyber-darker/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,99 +67,87 @@ export default function SecurityMetrics() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
-              Real-Time Security Dashboard
+              What Our Clients Say
             </span>
           </h2>
           <p className="text-xl text-cyber-gray max-w-3xl mx-auto">
-            Monitor your security posture with our comprehensive real-time analytics and threat intelligence.
+            Trusted by industry leaders worldwide. See how Hackure has transformed cybersecurity for organizations of all sizes.
           </p>
         </motion.div>
 
-        {/* Main Dashboard Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl overflow-hidden">
-            <CardContent className="p-0">
-              <img 
-                src="/dashboard-metrics.png" 
-                alt="Security Dashboard" 
-                className="w-full h-auto rounded-2xl"
-              />
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {metrics.map((metric, index) => (
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
             <motion.div
-              key={metric.title}
+              key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl hover:border-purple-500/40 transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${metric.color} rounded-lg flex items-center justify-center`}>
-                      <metric.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <TrendingUp className="h-5 w-5 text-green-500" />
+              <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl hover:border-purple-500/40 transition-all duration-300 h-full">
+                <CardContent className="p-6 h-full flex flex-col">
+                  {/* Quote Icon */}
+                  <div className="mb-4">
+                    <Quote className="h-8 w-8 text-purple-500/60" />
                   </div>
-                  <h3 className="text-2xl font-bold text-cyber-light mb-2">{metric.value}</h3>
-                  <p className="text-cyber-gray text-sm mb-1">{metric.title}</p>
-                  <p className="text-xs text-cyber-gray/70">{metric.description}</p>
+                  
+                  {/* Testimonial Content */}
+                  <blockquote className="text-cyber-gray leading-relaxed mb-6 flex-grow">
+                    "{testimonial.content}"
+                  </blockquote>
+                  
+                  {/* Rating */}
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
+                    ))}
+                  </div>
+                  
+                  {/* Author Info */}
+                  <div className="flex items-center space-x-4">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover border-2 border-purple-500/30"
+                    />
+                    <div>
+                      <div className="font-semibold text-cyber-light">{testimonial.name}</div>
+                      <div className="text-sm text-cyber-gray">{testimonial.title}</div>
+                      <div className="text-sm text-purple-400">{testimonial.company}</div>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
 
-        {/* Recent Security Alerts */}
+        {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
+          className="text-center mt-16"
         >
-          <Card className="bg-cyber-navy/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-cyber-light mb-6 flex items-center">
-                <AlertTriangle className="mr-3 h-6 w-6 text-orange-500" />
-                Recent Security Events
-              </h3>
-              <div className="space-y-4">
-                {recentAlerts.map((alert, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 bg-cyber-darker/50 rounded-lg border border-cyber-navy/30">
-                    <div className="flex items-center space-x-4">
-                      <div className={`w-3 h-3 rounded-full ${
-                        alert.severity === 'critical' ? 'bg-red-500' :
-                        alert.severity === 'high' ? 'bg-orange-500' :
-                        'bg-yellow-500'
-                      }`} />
-                      <div>
-                        <p className="text-cyber-light font-medium">{alert.title}</p>
-                        <p className="text-cyber-gray text-sm">{alert.time}</p>
-                      </div>
-                    </div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      alert.type === 'blocked' ? 'bg-green-500/20 text-green-400' :
-                      alert.type === 'resolved' ? 'bg-blue-500/20 text-blue-400' :
-                      'bg-yellow-500/20 text-yellow-400'
-                    }`}>
-                      {alert.type.charAt(0).toUpperCase() + alert.type.slice(1)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          <p className="text-lg text-cyber-gray mb-6">
+            Join hundreds of satisfied clients who trust Hackure with their cybersecurity needs.
+          </p>
+          <div className="flex items-center justify-center space-x-8 text-cyber-gray">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-purple-500">500+</div>
+              <div className="text-sm">Protected Clients</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-blue-500">100%</div>
+              <div className="text-sm">Client Satisfaction</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-purple-400">24/7</div>
+              <div className="text-sm">Support Available</div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
