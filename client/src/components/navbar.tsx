@@ -54,118 +54,44 @@ export default function Navbar() {
                 <motion.div
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0 }}
                   className="flex flex-col items-center"
                 >
-                  {/* Logo Symbol */}
-                  <motion.div
-                    className="relative w-12 h-12 mb-2"
-                    exit={{ x: -40, y: 10, scale: 0.8 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                  >
-                    {/* Circular pattern background */}
-                    <div className="absolute inset-0 rounded-full border-2 border-purple-500/30">
-                      <div className="absolute inset-1 rounded-full border border-purple-500/50">
-                        <div className="absolute inset-1 rounded-full border border-purple-500/70">
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-white font-bold text-xl">H</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Animated circuit lines */}
-                    <div className="absolute inset-0">
-                      {[...Array(8)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          className="absolute w-1 h-1 bg-purple-500 rounded-full"
-                          style={{
-                            top: `${Math.sin((i * Math.PI) / 4) * 20 + 50}%`,
-                            left: `${Math.cos((i * Math.PI) / 4) * 20 + 50}%`,
-                          }}
-                          animate={{
-                            opacity: [0.3, 1, 0.3],
-                            scale: [0.8, 1.2, 0.8],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: i * 0.2,
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </motion.div>
-                  
-                  {/* Company Name */}
-                  <motion.div
-                    className="text-white font-bold text-lg tracking-wider"
-                    exit={{ y: -30, x: 20 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                  >
-                    HACKURE
-                  </motion.div>
-                  
-                  {/* Slogan */}
-                  <motion.div
-                    className="text-purple-400 text-xs tracking-widest mt-1"
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    OFFENSE FUELS OUR DEFENSE
-                  </motion.div>
+                  {/* Logo Image */}
+                  <motion.img
+                    src="/hackure-logo.png"
+                    alt="Hackure Logo"
+                    className="w-24 h-24 object-contain"
+                    exit={{ x: -60, y: 20, scale: 0.5 }}
+                    transition={{ duration: 0 }}
+                  />
                 </motion.div>
               ) : (
                 // Compact logo when scrolled
                 <motion.div
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0 }}
                   className="flex items-center space-x-3"
                 >
-                  {/* Compact Logo Symbol */}
+                  {/* Compact Logo Symbol - extract just the H symbol */}
                   <motion.div
-                    className="relative w-8 h-8"
-                    initial={{ x: 40, y: -10, scale: 1.2 }}
+                    className="relative w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center"
+                    initial={{ x: 60, y: -20, scale: 2 }}
                     animate={{ x: 0, y: 0, scale: 1 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    transition={{ duration: 0 }}
                   >
-                    <div className="absolute inset-0 rounded-full border border-purple-500/50">
-                      <div className="absolute inset-0.5 rounded-full border border-purple-500/70">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">H</span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Minimal circuit effect */}
-                    <div className="absolute inset-0">
-                      {[...Array(4)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          className="absolute w-0.5 h-0.5 bg-purple-500 rounded-full"
-                          style={{
-                            top: `${Math.sin((i * Math.PI) / 2) * 12 + 50}%`,
-                            left: `${Math.cos((i * Math.PI) / 2) * 12 + 50}%`,
-                          }}
-                          animate={{
-                            opacity: [0.5, 1, 0.5],
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            delay: i * 0.3,
-                          }}
-                        />
-                      ))}
-                    </div>
+                    <span className="text-white font-bold text-sm">H</span>
+                    {/* Subtle glow effect */}
+                    <div className="absolute inset-0 rounded-full border border-purple-400/30"></div>
                   </motion.div>
                   
-                  {/* Compact Company Name */}
+                  {/* Company Name */}
                   <motion.div
                     className="text-white font-bold text-base tracking-wide"
-                    initial={{ x: -20, y: 30 }}
+                    initial={{ x: -60, y: 20 }}
                     animate={{ x: 0, y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut", delay: 0.1 }}
+                    transition={{ duration: 0 }}
                   >
                     HACKURE
                   </motion.div>
