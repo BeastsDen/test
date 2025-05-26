@@ -311,16 +311,16 @@ export default function ServicesSection() {
           initial={false}
         />
 
-        <CardContent className="p-6 relative z-10">
-          <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-4 animate-pulse-glow`}>
-            <service.icon className="h-6 w-6 text-white" />
+        <CardContent className="p-3 sm:p-6 relative z-10">
+          <div className={`w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-2 sm:mb-4 animate-pulse-glow`}>
+            <service.icon className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
           </div>
 
-          <h3 className="text-lg font-bold mb-3 text-cyber-light group-hover:text-purple-300 transition-colors duration-300">
+          <h3 className="text-sm sm:text-lg font-bold mb-2 sm:mb-3 text-cyber-light group-hover:text-purple-300 transition-colors duration-300 leading-tight">
             {service.title}
           </h3>
 
-          <p className="text-cyber-gray mb-4 text-sm leading-relaxed group-hover:text-cyber-light transition-colors duration-300">
+          <p className="text-cyber-gray mb-4 text-sm leading-relaxed group-hover:text-cyber-light transition-colors duration-300 hidden sm:block">
             {service.description}
           </p>
 
