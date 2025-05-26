@@ -43,13 +43,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <motion.span 
-              className="text-xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              onClick={() => handleNavClick("home")}
-            >
-              Hackure
-            </motion.span>
+            <div className="flex items-center space-x-2">
+            <img 
+              src="/logo.png" 
+              alt="Company Logo" 
+              className="h-10 w-auto"
+            />
+          </div>
           </div>
 
           {/* Desktop Navigation */}
