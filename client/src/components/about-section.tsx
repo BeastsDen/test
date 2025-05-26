@@ -150,7 +150,7 @@ export default function AboutSection() {
                         </div>
                         <div>
                           <h4 className="text-lg font-bold text-cyber-light">OSCP</h4>
-                          <p className="text-sm text-red-400">Offensive Security</p>
+                          <p className="text-sm text-red-400">OffSec</p>
                         </div>
                       </div>
                     </motion.div>
@@ -226,7 +226,7 @@ export default function AboutSection() {
                         </div>
                         <div className="text-center">
                           <h4 className="text-lg font-bold text-cyber-light">AWS Certified Security</h4>
-                          <p className="text-sm text-orange-400">Specialty Certification</p>
+                          <p className="text-sm text-orange-400">AWS</p>
                         </div>
                       </div>
                     </motion.div>
