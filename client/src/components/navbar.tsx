@@ -41,116 +41,93 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className={`flex justify-between items-center transition-all duration-500 ${isScrolled ? 'h-16' : 'h-24'}`}>
           {/* Logo */}
           <div className="flex items-center">
             <motion.div 
               className="flex items-center cursor-pointer relative"
               whileHover={{ scale: 1.05 }}
               onClick={() => handleNavClick("home")}
-              style={{ 
-                height: isScrolled ? '64px' : '120px',
-                width: isScrolled ? 'auto' : '200px',
-                paddingTop: isScrolled ? '0px' : '20px'
+              animate={{ 
+                height: isScrolled ? '48px' : '80px',
+                width: isScrolled ? '120px' : '180px'
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               {/* Full logo state - vertical layout */}
-              <AnimatePresence>
-                {!isScrolled && (
+              <AnimatePresence mode="wait">
+                {!isScrolled ? (
                   <motion.div
+                    key="full-logo"
                     className="flex flex-col items-center absolute inset-0 justify-center"
-                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ 
                       opacity: 1, 
-                      scale: 1, 
-                      y: 0 
+                      scale: 1
                     }}
                     exit={{ 
                       opacity: 0, 
-                      scale: 0.8, 
-                      y: -20,
-                      transition: { duration: 0.3 }
+                      scale: 0.9,
+                      transition: { duration: 0.2 }
                     }}
                     transition={{ 
-                      duration: 0.5, 
-                      ease: [0.25, 0.46, 0.45, 0.94]
+                      duration: 0.3, 
+                      ease: "easeOut"
                     }}
                   >
                     {/* Circular Logo */}
-                    <motion.img
+                    <img
                       src="/trans logo_1748282037813.png"
                       alt="Hackure Logo"
-                      className="w-16 h-16 mb-2 object-contain"
-                      initial={{ scale: 0.8 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
+                      className="w-12 h-12 mb-1 object-contain"
                     />
                     
                     {/* Company Name */}
-                    <motion.img
+                    <img
                       src="/trans comp_1748282026776.png"
                       alt="Hackure Company"
-                      className="h-6 mb-1 object-contain"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
+                      className="h-4 mb-1 object-contain"
                     />
                     
                     {/* Slogan */}
-                    <motion.img
+                    <img
                       src="/trans slogan_1748282043833.png"
                       alt="Offense Fuels Our Defense"
-                      className="h-4 object-contain"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.3 }}
+                      className="h-3 object-contain"
                     />
                   </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Compact logo state - horizontal layout */}
-              <AnimatePresence>
-                {isScrolled && (
+                ) : (
                   <motion.div
-                    className="flex items-center space-x-3 absolute inset-0 justify-start pl-2"
-                    initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                    key="compact-logo"
+                    className="flex items-center space-x-2 absolute inset-0 justify-start"
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ 
                       opacity: 1, 
-                      scale: 1, 
-                      x: 0 
+                      scale: 1
                     }}
                     exit={{ 
                       opacity: 0, 
-                      scale: 0.8, 
-                      x: 20,
-                      transition: { duration: 0.3 }
+                      scale: 0.9,
+                      transition: { duration: 0.2 }
                     }}
                     transition={{ 
-                      duration: 0.5, 
-                      ease: [0.25, 0.46, 0.45, 0.94],
+                      duration: 0.3, 
+                      ease: "easeOut",
                       delay: 0.1
                     }}
                   >
                     {/* Compact Circular Logo */}
-                    <motion.img
+                    <img
                       src="/trans logo_1748282037813.png"
                       alt="Hackure Logo"
-                      className="w-10 h-10 object-contain"
-                      initial={{ scale: 0.8 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
+                      className="w-8 h-8 object-contain"
                     />
                     
                     {/* Company Name */}
-                    <motion.img
+                    <img
                       src="/trans comp_1748282026776.png"
                       alt="Hackure Company"
-                      className="h-5 object-contain"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
+                      className="h-4 object-contain"
                     />
                   </motion.div>
                 )}
