@@ -45,93 +45,58 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <motion.div 
-              className="flex items-center cursor-pointer relative"
+              className="flex items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               onClick={() => handleNavClick("home")}
-              animate={{ 
-                height: isScrolled ? '48px' : '80px',
-                width: isScrolled ? '120px' : '180px'
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              {/* Full logo state - vertical layout */}
-              <AnimatePresence mode="wait">
-                {!isScrolled ? (
-                  <motion.div
-                    key="full-logo"
-                    className="flex flex-col items-center absolute inset-0 justify-center"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ 
-                      opacity: 1, 
-                      scale: 1
-                    }}
-                    exit={{ 
-                      opacity: 0, 
-                      scale: 0.9,
-                      transition: { duration: 0.2 }
-                    }}
-                    transition={{ 
-                      duration: 0.3, 
-                      ease: "easeOut"
-                    }}
-                  >
-                    {/* Circular Logo */}
-                    <img
-                      src="/trans logo_1748282037813.png"
-                      alt="Hackure Logo"
-                      className="w-12 h-12 mb-1 object-contain"
-                    />
-                    
-                    {/* Company Name */}
-                    <img
-                      src="/trans comp_1748282026776.png"
-                      alt="Hackure Company"
-                      className="h-4 mb-1 object-contain"
-                    />
-                    
-                    {/* Slogan */}
-                    <img
-                      src="/trans slogan_1748282043833.png"
-                      alt="Offense Fuels Our Defense"
-                      className="h-3 object-contain"
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="compact-logo"
-                    className="flex items-center space-x-2 absolute inset-0 justify-start"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ 
-                      opacity: 1, 
-                      scale: 1
-                    }}
-                    exit={{ 
-                      opacity: 0, 
-                      scale: 0.9,
-                      transition: { duration: 0.2 }
-                    }}
-                    transition={{ 
-                      duration: 0.3, 
-                      ease: "easeOut",
-                      delay: 0.1
-                    }}
-                  >
-                    {/* Compact Circular Logo */}
-                    <img
-                      src="/trans logo_1748282037813.png"
-                      alt="Hackure Logo"
-                      className="w-8 h-8 object-contain"
-                    />
-                    
-                    {/* Company Name */}
-                    <img
-                      src="/trans comp_1748282026776.png"
-                      alt="Hackure Company"
-                      className="h-4 object-contain"
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <motion.div
+                className="flex items-center"
+                animate={{ 
+                  flexDirection: isScrolled ? "row" : "column",
+                  alignItems: isScrolled ? "center" : "center",
+                  gap: isScrolled ? "8px" : "4px"
+                }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              >
+                {/* Circular Logo */}
+                <motion.img
+                  src="/trans logo_1748282037813.png"
+                  alt="Hackure Logo"
+                  className="object-contain"
+                  animate={{ 
+                    width: isScrolled ? "32px" : "48px",
+                    height: isScrolled ? "32px" : "48px"
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                />
+                
+                {/* Company Name */}
+                <motion.img
+                  src="/trans comp_1748282026776.png"
+                  alt="Hackure Company"
+                  className="object-contain"
+                  animate={{ 
+                    height: isScrolled ? "16px" : "16px",
+                    marginBottom: isScrolled ? "0px" : "4px"
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                />
+                
+                {/* Slogan - only show when not scrolled */}
+                <motion.img
+                  src="/trans slogan_1748282043833.png"
+                  alt="Offense Fuels Our Defense"
+                  className="object-contain"
+                  animate={{ 
+                    opacity: isScrolled ? 0 : 1,
+                    height: isScrolled ? "0px" : "12px",
+                    scale: isScrolled ? 0.8 : 1
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  style={{ display: isScrolled ? "none" : "block" }}
+                />
+              </motion.div>
             </motion.div>
           </div>
 
