@@ -18,7 +18,7 @@ export default function Footer() {
               <img 
                 src="/main logo.png" 
                 alt="Hackure Logo" 
-                className="h-10 w-auto filter brightness-110"
+                className="h-20 w-auto filter brightness-110"
               />
             </div>
             <p className="text-cyber-gray mb-6 max-w-md">
