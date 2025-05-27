@@ -94,12 +94,21 @@ export default function ContactSection() {
         services: [],
       });
     },
-    onError: (error: Error) => {
-      toast({
-        title: "Failed to send message",
-        description: error.message,
-        variant: "destructive",
-      });
+    onError: (error: any) => {
+      // Handle rate limit error specifically
+      if (error.message?.includes("Rate limit exceeded") || error.message?.includes("RATE_LIMIT_EXCEEDED")) {
+        toast({
+          title: "Too many requests",
+          description: "Please wait 30 seconds before submitting another message.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Failed to send message",
+          description: error.message || "An error occurred while sending your message.",
+          variant: "destructive",
+        });
+      }
     },
   });
 

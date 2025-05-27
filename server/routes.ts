@@ -5,6 +5,10 @@ import { insertContactSchema } from "@shared/schema";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 
+// Rate limiting for contact form submissions
+const contactRateLimit = new Map<string, number>();
+const RATE_LIMIT_WINDOW = 30 * 1000; // 30 seconds in milliseconds
+
 // Email configuration for Hostinger
 const transporter = nodemailer.createTransport({
   host: 'smtp.hostinger.com',
@@ -20,6 +24,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {
+      // Get client IP address
+      const clientIP = req.ip || req.connection.remoteAddress || req.socket.remoteAddress || 'unknown';
+      
+      // Check rate limit
+      const now = Date.now();
+      const lastSubmission = contactRateLimit.get(clientIP);
+      
+      if (lastSubmission && (now - lastSubmission) < RATE_LIMIT_WINDOW) {
+        const remainingTime = Math.ceil((RATE_LIMIT_WINDOW - (now - lastSubmission)) / 1000);
+        return res.status(429).json({
+          message: `Rate limit exceeded. Please wait ${remainingTime} seconds before submitting again.`,
+          error: "RATE_LIMIT_EXCEEDED",
+          retryAfter: remainingTime
+        });
+      }
+      
+      // Update rate limit timestamp
+      contactRateLimit.set(clientIP, now);
+      
+      // Clean up old entries (older than rate limit window)
+      for (const [ip, timestamp] of contactRateLimit.entries()) {
+        if (now - timestamp >= RATE_LIMIT_WINDOW) {
+          contactRateLimit.delete(ip);
+        }
+      }
+
       const contactData = insertContactSchema.parse(req.body);
 
       // Send email notification
