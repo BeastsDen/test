@@ -98,11 +98,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
                     <div class="value">${contactData.company || 'Not provided'}</div>
                   </div>
 
-                  ${contactData.services && contactData.services.length > 0 ? `
                   <div class="field">
                     <div class="label">🛡️ Services Interested In:</div>
                     <div class="services-list">
-                      ${contactData.services.length > 0 
+                      ${contactData.services && contactData.services.length > 0 
                         ? contactData.services.map(service => `
                         <div class="service-item">• ${service}</div>
                       `).join('')
@@ -110,10 +109,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
                       }
                     </div>
                     <p style="margin: 10px 0 0 0; font-size: 12px; color: #666;">
-                      Total: ${contactData.services.length} service${contactData.services.length > 1 ? 's' : ''} selected
+                      Total: ${contactData.services ? contactData.services.length : 0} service${contactData.services && contactData.services.length > 1 ? 's' : ''} selected
                     </p>
                   </div>
-                  ` : ''}
 
                   <div class="field">
                     <div class="label">💬 Message:</div>
