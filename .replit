@@ -14,7 +14,7 @@ localPort = 5000
 externalPort = 80
 
 [workflows]
-runButton = "Project"
+runButton = "Start Hackure App"
 
 [[workflows.workflow]]
 name = "Project"
@@ -46,6 +46,15 @@ args = "npm run dev"
 [[workflows.workflow]]
 name = "Start Web App"
 author = 43142167
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+
+[[workflows.workflow]]
+name = "Start Hackure App"
+author = 43172832
 mode = "sequential"
 
 [[workflows.workflow.tasks]]
