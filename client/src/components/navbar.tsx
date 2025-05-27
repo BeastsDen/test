@@ -46,77 +46,27 @@ export default function Navbar() {
           <div className="flex items-center">
             <motion.div 
               className="flex items-center cursor-pointer"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               onClick={() => handleNavClick("home")}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
-              <motion.div
-                className="flex items-center"
+              <motion.img
+                src="/main logo.png"
+                alt="Hackure Logo"
+                className="object-contain brightness-110 contrast-110"
                 animate={{ 
-                  flexDirection: isScrolled ? "row" : "column",
-                  alignItems: isScrolled ? "center" : "center",
-                  gap: isScrolled ? "12px" : "4px"
+                  height: isScrolled ? "40px" : "60px",
                 }}
                 transition={{ 
-                  duration: 0.7, 
-                  ease: [0.25, 0.1, 0.25, 1],
+                  duration: 0.4, 
+                  ease: [0.4, 0, 0.2, 1],
                   type: "tween"
                 }}
-              >
-                {/* Circular Logo */}
-                <motion.img
-                  src="/trans logo_1748282037813.png"
-                  alt="Hackure Logo"
-                  className="object-contain"
-                  animate={{ 
-                    width: isScrolled ? "36px" : "52px",
-                    height: isScrolled ? "36px" : "52px"
-                  }}
-                  transition={{ 
-                    duration: 0.7, 
-                    ease: [0.25, 0.1, 0.25, 1],
-                    type: "tween"
-                  }}
-                />
-                
-                {/* Company Name */}
-                <motion.img
-                  src="/trans comp_1748282026776.png"
-                  alt="Hackure Company"
-                  className="object-contain"
-                  animate={{ 
-                    height: isScrolled ? "18px" : "18px",
-                    marginBottom: isScrolled ? "0px" : "6px"
-                  }}
-                  transition={{ 
-                    duration: 0.7, 
-                    ease: [0.25, 0.1, 0.25, 1],
-                    type: "tween"
-                  }}
-                />
-                
-                {/* Slogan - only show when not scrolled */}
-                <motion.img
-                  src="/trans slogan_1748282043833.png"
-                  alt="Offense Fuels Our Defense"
-                  className="object-contain"
-                  animate={{ 
-                    opacity: isScrolled ? 0 : 1,
-                    height: isScrolled ? "0px" : "14px",
-                    scale: isScrolled ? 0.9 : 1,
-                    marginTop: isScrolled ? "0px" : "2px"
-                  }}
-                  transition={{ 
-                    duration: 0.6, 
-                    ease: [0.25, 0.1, 0.25, 1],
-                    type: "tween"
-                  }}
-                  style={{ 
-                    overflow: "hidden",
-                    display: isScrolled ? "none" : "block" 
-                  }}
-                />
-              </motion.div>
+                style={{
+                  filter: "drop-shadow(0 0 8px rgba(139, 92, 246, 0.3))",
+                  width: "auto"
+                }}
+              />
             </motion.div>
           </div>
 
