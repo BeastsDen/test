@@ -380,11 +380,18 @@ export default function ContactSection() {
                 </p>
                 <div className="space-y-3">
                   <Button 
-                    onClick={() => window.open('tel:+1-800-HACKURE')}
+                    onClick={() => window.open('tel:+917376702939')}
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300"
                   >
                     <Phone className="mr-2 h-4 w-4" />
-                    Call: +1 (800) HACKURE
+                    Call: +917376702939
+                  </Button>
+                  <Button 
+                    onClick={() => window.open('tel:+918463894636')}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300"
+                  >
+                    <Phone className="mr-2 h-4 w-4" />
+                    Call: +918463894636
                   </Button>
                   <p className="text-sm text-gray-400 text-center">
                     Available 24/7 • Average response time: &lt; 5 minutes
