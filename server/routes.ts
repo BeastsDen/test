@@ -51,6 +51,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const contactData = insertContactSchema.parse(req.body);
+      
+      // Debug log to check what services are received
+      console.log("Received contact data:", JSON.stringify(contactData, null, 2));
+      console.log("Services array:", contactData.services);
+      console.log("Services length:", contactData.services ? contactData.services.length : 'undefined');
 
       // Send email notification
       try {
@@ -101,15 +106,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
                   <div class="field">
                     <div class="label">🛡️ Services Interested In:</div>
                     <div class="services-list">
-                      ${contactData.services && contactData.services.length > 0 
+                      ${Array.isArray(contactData.services) && contactData.services.length > 0 
                         ? contactData.services.map(service => `
-                        <div class="service-item">• ${service}</div>
+                        <div class="service-item">• ${String(service).trim()}</div>
                       `).join('')
-                        : '<div class="service-item">No services selected</div>'
+                        : '<div class="service-item" style="color: #999; font-style: italic;">No services selected</div>'
                       }
                     </div>
                     <p style="margin: 10px 0 0 0; font-size: 12px; color: #666;">
-                      Total: ${contactData.services ? contactData.services.length : 0} service${contactData.services && contactData.services.length > 1 ? 's' : ''} selected
+                      Total: ${Array.isArray(contactData.services) ? contactData.services.length : 0} service${Array.isArray(contactData.services) && contactData.services.length !== 1 ? 's' : ''} selected
                     </p>
                   </div>
 

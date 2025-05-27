@@ -29,6 +29,8 @@ export const insertContactSchema = createInsertSchema(contacts).pick({
   email: true,
   company: true,
   message: true,
+}).extend({
+  services: z.array(z.string()).optional().default([])
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
