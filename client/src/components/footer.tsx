@@ -16,8 +16,8 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src="/logo.png" 
-                alt="Company Logo" 
+                src="/main logo.png" 
+                alt="Hackure Logo" 
                 className="h-10 w-auto filter brightness-110"
               />
             </div>

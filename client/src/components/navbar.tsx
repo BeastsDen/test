@@ -40,7 +40,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex justify-between items-center transition-all duration-700 ease-out ${isScrolled ? 'h-16' : 'h-24'}`}>
+        <div className={`flex justify-between items-center transition-all duration-700 ease-out ${isScrolled ? 'h-16' : 'h-32'}`}>
           {/* Logo */}
           <div className="flex items-center">
             <motion.a 
