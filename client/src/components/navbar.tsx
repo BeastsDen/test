@@ -56,7 +56,7 @@ export default function Navbar() {
                 alt="Hackure Logo"
                 className="object-contain brightness-110 contrast-110"
                 animate={{ 
-                  height: isScrolled ? "40px" : "60px",
+                  height: isScrolled ? "68px" : "102px",
                 }}
                 transition={{ 
                   duration: 0.4, 
