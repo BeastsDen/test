@@ -43,10 +43,12 @@ export default function Navbar() {
         <div className={`flex justify-between items-center transition-all duration-700 ease-out ${isScrolled ? 'h-16' : 'h-24'}`}>
           {/* Logo */}
           <div className="flex items-center">
-            <motion.div 
+            <motion.a 
+              href="https://www.hackure.in"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center cursor-pointer"
               whileHover={{ scale: 1.02 }}
-              onClick={() => handleNavClick("home")}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
               <motion.img
@@ -66,19 +68,31 @@ export default function Navbar() {
                   width: "auto"
                 }}
               />
-            </motion.div>
+            </motion.a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.href)}
-                className="text-cyber-gray hover:text-purple-500 transition-colors duration-300"
-              >
-                {item.name}
-              </button>
+              item.name === "Home" ? (
+                <a
+                  key={item.name}
+                  href="https://www.hackure.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyber-gray hover:text-purple-500 transition-colors duration-300"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item.href)}
+                  className="text-cyber-gray hover:text-purple-500 transition-colors duration-300"
+                >
+                  {item.name}
+                </button>
+              )
             ))}
             <Button
               onClick={() => handleNavClick("contact")}
@@ -105,13 +119,25 @@ export default function Navbar() {
             >
               <div className="flex flex-col space-y-6 mt-8">
                 {navItems.map((item) => (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.href)}
-                    className="text-left text-cyber-gray hover:text-purple-500 transition-colors duration-300 text-lg"
-                  >
-                    {item.name}
-                  </button>
+                  item.name === "Home" ? (
+                    <a
+                      key={item.name}
+                      href="https://www.hackure.in"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-left text-cyber-gray hover:text-purple-500 transition-colors duration-300 text-lg"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <button
+                      key={item.name}
+                      onClick={() => handleNavClick(item.href)}
+                      className="text-left text-cyber-gray hover:text-purple-500 transition-colors duration-300 text-lg"
+                    >
+                      {item.name}
+                    </button>
+                  )
                 ))}
                 <Button
                   onClick={() => handleNavClick("contact")}
