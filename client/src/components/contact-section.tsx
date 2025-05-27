@@ -384,14 +384,14 @@ export default function ContactSection() {
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300"
                   >
                     <Phone className="mr-2 h-4 w-4" />
-                    Call: +917376702939
+                    Emergency Helpline number: 1
                   </Button>
                   <Button 
                     onClick={() => window.open('tel:+918463894636')}
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300"
                   >
                     <Phone className="mr-2 h-4 w-4" />
-                    Call: +918463894636
+                    Emergency Helpline number: 2
                   </Button>
                   <p className="text-sm text-gray-400 text-center">
                     Available 24/7 • Average response time: &lt; 5 minutes
