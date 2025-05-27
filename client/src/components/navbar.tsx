@@ -13,7 +13,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -41,23 +41,27 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex justify-between items-center transition-all duration-500 ${isScrolled ? 'h-16' : 'h-24'}`}>
+        <div className={`flex justify-between items-center transition-all duration-700 ease-out ${isScrolled ? 'h-16' : 'h-24'}`}>
           {/* Logo */}
           <div className="flex items-center">
             <motion.div 
               className="flex items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               onClick={() => handleNavClick("home")}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <motion.div
                 className="flex items-center"
                 animate={{ 
                   flexDirection: isScrolled ? "row" : "column",
                   alignItems: isScrolled ? "center" : "center",
-                  gap: isScrolled ? "8px" : "4px"
+                  gap: isScrolled ? "12px" : "4px"
                 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ 
+                  duration: 0.7, 
+                  ease: [0.25, 0.1, 0.25, 1],
+                  type: "tween"
+                }}
               >
                 {/* Circular Logo */}
                 <motion.img
@@ -65,10 +69,14 @@ export default function Navbar() {
                   alt="Hackure Logo"
                   className="object-contain"
                   animate={{ 
-                    width: isScrolled ? "32px" : "48px",
-                    height: isScrolled ? "32px" : "48px"
+                    width: isScrolled ? "36px" : "52px",
+                    height: isScrolled ? "36px" : "52px"
                   }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  transition={{ 
+                    duration: 0.7, 
+                    ease: [0.25, 0.1, 0.25, 1],
+                    type: "tween"
+                  }}
                 />
                 
                 {/* Company Name */}
@@ -77,10 +85,14 @@ export default function Navbar() {
                   alt="Hackure Company"
                   className="object-contain"
                   animate={{ 
-                    height: isScrolled ? "16px" : "16px",
-                    marginBottom: isScrolled ? "0px" : "4px"
+                    height: isScrolled ? "18px" : "18px",
+                    marginBottom: isScrolled ? "0px" : "6px"
                   }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  transition={{ 
+                    duration: 0.7, 
+                    ease: [0.25, 0.1, 0.25, 1],
+                    type: "tween"
+                  }}
                 />
                 
                 {/* Slogan - only show when not scrolled */}
@@ -90,11 +102,19 @@ export default function Navbar() {
                   className="object-contain"
                   animate={{ 
                     opacity: isScrolled ? 0 : 1,
-                    height: isScrolled ? "0px" : "12px",
-                    scale: isScrolled ? 0.8 : 1
+                    height: isScrolled ? "0px" : "14px",
+                    scale: isScrolled ? 0.9 : 1,
+                    marginTop: isScrolled ? "0px" : "2px"
                   }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  style={{ display: isScrolled ? "none" : "block" }}
+                  transition={{ 
+                    duration: 0.6, 
+                    ease: [0.25, 0.1, 0.25, 1],
+                    type: "tween"
+                  }}
+                  style={{ 
+                    overflow: "hidden",
+                    display: isScrolled ? "none" : "block" 
+                  }}
                 />
               </motion.div>
             </motion.div>
