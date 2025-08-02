@@ -25,10 +25,10 @@ export default function AboutSection() {
               </span>
             </h2>
             <p className="mobile-text-compact text-cyber-gray mb-4 sm:mb-8">
-              Founded by cybersecurity experts with decades of experience, Hackure is dedicated to protecting organizations from the ever-evolving landscape of cyber threats.
+              Founded by cybersecurity experts with real-world experience, Hackure is dedicated to protecting organizations from the ever-evolving landscape of cyber threats.
             </p>
             <p className="text-base sm:text-lg text-cyber-gray mb-4 sm:mb-8 mobile-text-compact">
-              Our team combines cutting-edge technology with deep industry knowledge to deliver comprehensive security solutions that adapt to your unique business needs. We believe that effective cybersecurity is not just about technology—it's about understanding your business and creating tailored protection strategies.
+              Our team combines cutting-edge technology with deep industry knowledge to deliver comprehensive security solutions that adapt to your unique business needs. We believe that effective cybersecurity is not just about technology, it's about understanding your business and creating tailored protection strategies.
             </p>
 
             {/* Mission & Vision */}

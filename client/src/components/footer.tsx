@@ -90,7 +90,8 @@ export default function Footer() {
         
         <div className="border-t border-cyber-navy/30 mt-12 pt-8 text-center">
           <p className="text-cyber-gray">
-            © 2024 Hackure. All rights reserved. |{" "}
+            © 2025 Hackure. All rights reserved. |{" "}
+            /*
             <a href="#" className="text-purple-500 hover:text-blue-500 transition-colors duration-300">
               Privacy Policy
             </a>{" "}
@@ -98,6 +99,7 @@ export default function Footer() {
             <a href="#" className="text-purple-500 hover:text-blue-500 transition-colors duration-300">
               Terms of Service
             </a>
+            */
           </p>
         </div>
       </div>

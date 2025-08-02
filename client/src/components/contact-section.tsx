@@ -331,7 +331,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-cyber-light mb-1">Address</h4>
-                      <p className="text-cyber-gray">123 Cyber Security Blvd<br />Digital City, DC 12345</p>
+                      <p className="text-cyber-gray">Infrapro Spaces, 2nd floor, Minarch Tower<br />Sector 44, Gurugram, Haryana 122003</p>
                     </div>
                   </div>
                   
@@ -341,7 +341,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-cyber-light mb-1">Phone</h4>
-                      <p className="text-cyber-gray">+1 (555) 123-4567</p>
+                      <p className="text-cyber-gray">+91 9625962939</p>
                     </div>
                   </div>
                   
@@ -351,7 +351,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-cyber-light mb-1">Email</h4>
-                      <p className="text-cyber-gray">contact@hackure.com</p>
+                      <p className="text-cyber-gray">sales@hackure.com</p>
                     </div>
                   </div>
                   
@@ -361,7 +361,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-cyber-light mb-1">Business Hours</h4>
-                      <p className="text-cyber-gray">24/7 Emergency Support<br />Mon-Fri 9AM-6PM for consultations</p>
+                      <p className="text-cyber-gray">24/7 Emergency Support<br />Mon-Fri 10AM-6PM for consultations</p>
                     </div>
                   </div>
                 </div>
@@ -380,7 +380,7 @@ export default function ContactSection() {
                 </p>
                 <div className="space-y-3">
                   <Button 
-                    onClick={() => window.open('tel:+917376702939')}
+                    onClick={() => window.open('tel:+919625962939')}
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300"
                   >
                     <Phone className="mr-2 h-4 w-4" />

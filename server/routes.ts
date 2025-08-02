@@ -11,12 +11,12 @@ const RATE_LIMIT_WINDOW = 30 * 1000; // 30 seconds in milliseconds
 
 // Email configuration for Hostinger
 const transporter = nodemailer.createTransport({
-  host: 'smtp.hostinger.com',
-  port: 465,
+  host: 'smtp-mail.outlook.com',
+  port: 587,
   secure: true, // SSL/TLS
   auth: {
-    user: 'sales@hackure.in',
-    pass: 'H@ckure#1529'
+    user: 'operations@hackure.in',
+    pass: 'Lail@Ha$eena#1529'
   }
 });
 
@@ -60,8 +60,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Send email notification
       try {
         await transporter.sendMail({
-          from: 'sales@hackure.in',
-          to: 'maliaakash09@gmail.com',
+          from: 'operations@hackure.in',
+          to: 'sales@hackure.in',
           subject: `New Contact Form Submission from ${contactData.firstName} ${contactData.lastName}`,
           html: `
             <!DOCTYPE html>
